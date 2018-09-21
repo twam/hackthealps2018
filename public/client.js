@@ -24,6 +24,8 @@ COBI.app.touchInteractionEnabled.subscribe(function(touchInteractionEnabled) {
   updateInterfaceVisibility(touchInteractionEnabled);
 });
 
+var tamagochi = make_tamagochi();
+
 // Define id, name, events, formatting functions, units and default value for each item
 var definitions = [
   {
@@ -117,8 +119,10 @@ var definitions = [
     type: 'value',
   },
   {
-    id: 'test',
-    name: 'text',
+    id: 'tamagochi',
+    name: 'tamagochi',
+      subscribe: tamagochi.subscribe,
+      unsubscribe: tamagochi.unsubscribe,
     defaultValue: '-',
     unit: 'test unit',
     type: 'tamagochi'
