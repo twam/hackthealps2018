@@ -256,13 +256,28 @@ function initStats() {
     }
   });
 
-  var lastCord;
   COBI.mobile.location.subscribe(function(value, timestamp) {
-    if (lastCord !== undefined) {
-      console.log("position: " + value.coordinate.latitude + ", " + value.coordinate.latitude + ": distance " + coordinateDistance(value.coordinate, lastCord));
-    }
+    lastBiergartenQueryCoordinate = localStorage.getItem("lastBiergartenQueryCoordinate");
+    console.log('mystuff' + lastBiergartenQueryCoordinate)
 
-    lastCord = value.coordinate;
+    if ((lastBiergartenQueryCoordinate === null) || (coordinateDistance(value.coordinate, lastBiergartenQueryCoordinate) > 1000)) {
+      console.log('Requesting Biergarten for position ' + value.coordinate.latitude + ', '+ value.coordinate.longitude + ' ...')
+
+      var biergarten = makeBiergarten('xxx'); // replace
+      biergarten.list(value.coordinate.latitude, value.coordinate.longitude, 10000, processBiergarten);
+      localStorage.setItem("lastBiergartenQueryCoordinate", value.coordinate);
+
+      function processBiergarten(result) {
+        console.log("Biergarten: "+result)
+        for (var i = 0; i < result.TotalResults; i++) {
+            var gastro = result.Items[i];
+            if (gastro !== undefined) {
+              console.log(gastro.Latitude, gastro.Longitude, gastro.Shortname)
+            }
+        }
+      }
+
+    }
   });
 }
 
@@ -273,6 +288,10 @@ $(window).on('blur focus', function() {
 });
 
 $(window).on('load', function(e) {
+
+  // delete old items
+  localStorage.removeItem("lastBiergartenQueryCoordinate");
+
   restoreGrid();
   updateGridZoom();
   initStats();
