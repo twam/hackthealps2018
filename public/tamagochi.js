@@ -13,7 +13,6 @@ var make_tamagochi = function () {
         },
 
         update: function( key, value) {
-            console.log("huhu");
             state[ key] = value;
             my_callback( state);
         },
