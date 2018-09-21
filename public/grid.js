@@ -11,7 +11,8 @@ var defaultOrderedList = [
   'ascent',
   'calories',
   'distance',
-  'duration'
+  'duration',
+  'test'
 ];
 
 var defaultZoomIndex = 3;
@@ -116,24 +117,38 @@ function updateInterfaceVisibility(touchInteractionEnabled) {
   }
 }
 
+function setupGridItem(definition) {
+  createGridItem(definition);
+  updateGridItemWith(definition, definition.defaultValue);
+  subscribeGridItemWith(definition);
+}
+
 // Add dom element for each item
 function restoreGrid() {
   clearGrid();
   for (var i = 0; i < orderedList.length; i++) {
     var definition = definitionForId(orderedList[i]);
-    createGridItem(definition);
-    updateGridItemWith(definition, definition.defaultValue);
-    subscribeGridItemWith(definition);
+    setupGridItem(definition);
   }
 }
 
 // Hook onto event that triggers on value change
 function subscribeGridItemWith(definition) {
   var formatter = definition.formatter;
-  definition.unsubscribe();
-  definition.subscribe(function(value) {
-    updateGridItemWith(definition, formatter(value));
-  });
+  var type = definition.type;
+
+  if (type === 'value') {
+    definition.unsubscribe();
+    definition.subscribe(function(value) {
+      updateGridItemWith(definition, formatter(value));
+    });
+  } else if (type === 'tamagochi') {
+    // definition.unsubscribe();
+    // definition.subscribe(function(value) {
+    //   updateGridItemWith(definition, formatter(value));
+    // });
+
+  }
 }
 
 // Update dom element with values for item
@@ -213,6 +228,43 @@ function definitionForId(id) {
   return null;
 }
 
+function coordinateDistance(cord1, cord2) {
+  // https://www.movable-type.co.uk/scripts/latlong.html
+  var R = 6371e3; // metres
+  var φ1 = cord1.latitude * Math.PI / 180;
+  var φ2 = cord2.latitude* Math.PI / 180;
+  var Δφ = (cord2.latitude-cord1.latitude) * Math.PI / 180;
+  var Δλ = (cord2.longitude-cord1.longitude) * Math.PI / 180;
+
+  var a = Math.sin(Δφ/2) * Math.sin(Δφ/2) +
+        Math.cos(φ1) * Math.cos(φ2) *
+        Math.sin(Δλ/2) * Math.sin(Δλ/2);
+  var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+
+  var d = R * c;
+
+  return d;
+}
+
+function initStats() {
+  COBI.rideService.speed.subscribe(function(value, timestamp) {
+    maxSpeed = localStorage.getItem("maxSpeed");
+    if (value > maxSpeed) {
+      maxSpeed = value;
+      localStorage.setItem("maxSpeed", maxSpeed);
+      console.log("maxspeed:" + value);
+    }
+  });
+
+  var lastCord;
+  COBI.mobile.location.subscribe(function(value, timestamp) {
+    if (lastCord !== undefined) {
+      console.log("position: " + value.coordinate.latitude + ", " + value.coordinate.latitude + ": distance " + coordinateDistance(value.coordinate, lastCord));
+    }
+
+    lastCord = value.coordinate;
+  });
+}
 
 // Init Grid on Load
 $(window).on('blur focus', function() {
@@ -223,4 +275,5 @@ $(window).on('blur focus', function() {
 $(window).on('load', function(e) {
   restoreGrid();
   updateGridZoom();
+  initStats();
 });

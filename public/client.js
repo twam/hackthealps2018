@@ -33,7 +33,8 @@ var definitions = [
     unsubscribe: COBI.rideService.speed.unsubscribe,
     formatter: formatSpeedDot1,
     unit: 'km/h',
-    defaultValue: '-'
+    defaultValue: '-',
+    type: 'value',
   },
   {
     id: 'average_speed',
@@ -42,7 +43,8 @@ var definitions = [
     unsubscribe: COBI.tourService.averageSpeed.unsubscribe,
     formatter: formatSpeedDot1,
     unit: 'Ø km/h',
-    defaultValue: '-'
+    defaultValue: '-',
+    type: 'value',
   },
   {
     id: 'user_power',
@@ -51,7 +53,8 @@ var definitions = [
     unsubscribe: COBI.rideService.userPower.unsubscribe,
     formatter: formatInt,
     unit: 'watts',
-    defaultValue: '-'
+    defaultValue: '-',
+    type: 'value',
   },
   {
     id: 'cadence',
@@ -60,7 +63,8 @@ var definitions = [
     unsubscribe: COBI.rideService.cadence.unsubscribe,
     formatter: formatInt,
     unit: 'rpm',
-    defaultValue: '-'
+    defaultValue: '-',
+    type: 'value',
   },
   {
     id: 'distance',
@@ -69,7 +73,8 @@ var definitions = [
     unsubscribe: COBI.tourService.ridingDistance.unsubscribe,
     formatter: formatDistanceDot1,
     unit: 'km total',
-    defaultValue: '-'
+    defaultValue: '-',
+    type: 'value',
   },
   {
     id: 'calories',
@@ -78,7 +83,8 @@ var definitions = [
     unsubscribe: COBI.tourService.calories.unsubscribe,
     formatter: formatInt,
     unit: 'kcal',
-    defaultValue: '-'
+    defaultValue: '-',
+    type: 'value',
   },
   {
     id: 'ascent',
@@ -87,7 +93,8 @@ var definitions = [
     unsubscribe: COBI.tourService.ascent.unsubscribe,
     formatter: formatInt,
     unit: 'm',
-    defaultValue: '-'
+    defaultValue: '-',
+    type: 'value',
   },
   {
     id: 'heart_rate',
@@ -96,7 +103,8 @@ var definitions = [
     unsubscribe: COBI.rideService.heartRate.unsubscribe,
     formatter: formatInt,
     unit: 'bpm',
-    defaultValue: '-'
+    defaultValue: '-',
+    type: 'value',
   },
   {
     id: 'duration',
@@ -105,6 +113,14 @@ var definitions = [
     unsubscribe: COBI.tourService.ridingDuration.unsubscribe,
     formatter: formatMins,
     unit: 'min',
-    defaultValue: '-'
+    defaultValue: '-',
+    type: 'value',
+  },
+  {
+    id: 'test',
+    name: 'text',
+    defaultValue: '-',
+    unit: 'test unit',
+    type: 'tamagochi'
   }
 ];
