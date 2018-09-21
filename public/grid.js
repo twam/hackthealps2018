@@ -266,32 +266,21 @@ function initStats() {
     if (value > maxSpeed) {
       maxSpeed = value;
       localStorage.setItem("maxSpeed", maxSpeed);
-      console.log("maxspeed:" + value);
+      // console.log("maxspeed:" + value);
     }
   });
 
+  var biergarten = makeBiergarten('$h4cKth34lpS');
+
   COBI.mobile.location.subscribe(function(value, timestamp) {
-    lastBiergartenQueryCoordinate = localStorage.getItem("lastBiergartenQueryCoordinate");
-    console.log('mystuff' + lastBiergartenQueryCoordinate)
+      if (localStorage.getItem("lastBiergartenSet") === null) {
 
-    if ((lastBiergartenQueryCoordinate === null) || (coordinateDistance(value.coordinate, lastBiergartenQueryCoordinate) > 1000)) {
-      console.log('Requesting Biergarten for position ' + value.coordinate.latitude + ', '+ value.coordinate.longitude + ' ...')
+         // biergarten.init(value.coordinate.latitude, value.coordinate.longitude, 10000);
+          biergarten.init(46.776221,11.948397,10000);
 
-      var biergarten = makeBiergarten('xxx'); // replace
-      biergarten.list(value.coordinate.latitude, value.coordinate.longitude, 10000, processBiergarten);
-      localStorage.setItem("lastBiergartenQueryCoordinate", value.coordinate);
-
-      function processBiergarten(result) {
-        console.log("Biergarten: "+result)
-        for (var i = 0; i < result.TotalResults; i++) {
-            var gastro = result.Items[i];
-            if (gastro !== undefined) {
-              console.log(gastro.Latitude, gastro.Longitude, gastro.Shortname)
-            }
-        }
+          localStorage.setItem("lastBiergartenSet", true);
       }
-
-    }
+      biergarten.add_position( value.coordinate.latitude, value.coordinate.longitude)
   });
 }
 
@@ -304,8 +293,8 @@ $(window).on('blur focus', function() {
 $(window).on('load', function(e) {
 
   // delete old items
-  localStorage.removeItem("lastBiergartenQueryCoordinate");
-
+  localStorage.removeItem("lastBiergartenSet");
+  v = localStorage.getItem("lastBiergartenSet")
   restoreGrid();
   updateGridZoom();
   initStats();

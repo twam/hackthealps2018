@@ -9,6 +9,7 @@ var makeBiergarten = function (pwd) {
     var USER_ID = "tourism@hackthealps.it";
     var PWD = pwd;
     var BEARER_TOKEN = 0;
+    var gastro_list = [];
 
     function get_token(userid, password, callback) {
         var payload = {
@@ -31,23 +32,42 @@ var makeBiergarten = function (pwd) {
         BEARER_TOKEN = token.access_token
     }
 
-    function get_biergarten_list( lat, lon, rad, callback)  {
+    function store_biergarten_list( lat, lon, rad)  {
         return function() {
             $.ajax(BIERGARTEN_URI+"&categorycodefilter=65536&latitude="+ lat + "&longitude=" + lon + "&radius=" + rad, {
                 headers: { "Authorization": "Bearer " + BEARER_TOKEN},
-                success: callback,
+                success: consume_list,
             });
         }
     }
+
+    function consume_list( result) {
+        for (var i = 0; i < result.TotalResults; i++) {
+            var gastro = result.Items[i];
+            console.log(  gastro.Latitude, gastro.Longitude, gastro.Shortname)
+            gastro_list.push( { lat: gastro.Latitude, lon: gastro.Longitude, sn: gastro.Shortname});
+        }
+    }
+
+
     var thus = {
-        list: function (lat, lon, rad, callback) {
-            get_token(USER_ID, PWD, get_biergarten_list( lat, lon, rad, callback))
+        init: function (lat, lon, rad) {
+            get_token(USER_ID, PWD, store_biergarten_list( lat, lon, rad))
         },
+        add_position: function( lat, lon) {
+            for (var i = 0; i < gastro_list.length; i++) {
+                var d = coordinateDistance( { 'latitude': lat, 'longitude' : lon},
+                                    { 'latitude': gastro_list[i].lat, 'longitude' : gastro_list[i].lon })
+                console.log( "DIST" + d);
+            }
+        }
 
 
     };
     return thus;
 }
+
+
 
 
 /*
