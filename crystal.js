@@ -6,9 +6,9 @@ var targetRotationOnMouseDown = 0;
 var mouseX = 0;
 var mouseXOnMouseDown = 0;
 
-var windowHalfX = window.innerWidth / 2;
-var windowHalfY = window.innerHeight / 2;
 
+var crystal_width ;
+var crystal_height;
 
 function crystal_init() {
     container = document.createElement('div');
@@ -16,10 +16,12 @@ function crystal_init() {
 
     scene = new THREE.Scene();
 
-    var width = container.offsetWidth;
-    var height = window.innerHeight;
 
-    camera = new THREE.PerspectiveCamera(50, width / height, 1, 1000);
+    crystal_width = container.offsetWidth;
+    crystal_height = window.innerHeight;
+
+
+    camera = new THREE.PerspectiveCamera(50, crystal_width / crystal_height, 1, 1000);
     camera.position.z = 750;
     scene.add(camera);
 
@@ -78,23 +80,24 @@ function crystal_init() {
     renderer = new THREE.WebGLRenderer({
         antialias: true
     });
-    renderer.setClearColor(0x2d2d36);
+    renderer.setClearColor(0x12d2d3);
     renderer.setPixelRatio(window.devicePixelRatio);
 
-    renderer.setSize(width, height);
+    renderer.setSize(crystal_width, crystal_height);
     container.appendChild(renderer.domElement);
 
     window.addEventListener('resize', onWindowResize, false);
 }
 
 function onWindowResize() {
-    windowHalfX = window.innerWidth / 2;
-    windowHalfY = window.innerHeight / 2;
 
-    camera.aspect = window.innerWidth / window.innerHeight;
+    crystal_width = container.offsetWidth;
+    crystal_height = window.innerHeight;
+
+    camera.aspect = crystal_width/ crystal_height;
     camera.updateProjectionMatrix();
 
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setSize(crystal_width, crystal_height);
 }
 
 function crystal_animate() {
