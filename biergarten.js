@@ -1,6 +1,5 @@
 "use strict";
 
-
 var makeBiergarten = function (pwd) {
     var API_KEY = '5MJYmI4aFb4akUO-_G5ew8BPHqlfvc2g_GvOq_nlGPaDwmuM0MUKtrNuCHVmQeKGaNzYSJ-tiwP1UupqIBbIdX6u2wIVw7tjxN2T6TJBRjuzo9fCpH2JJ42sMJl-eKeSduWmckdVCMIiOpxfb7isdPaJRFT4Jd1XSZaRRKPPBx-7skFfhH-6mh0in8rTpbb7FY_Lxld6rCUc2i_oQ9iAJkRC7ZNiNMCgtcKQq_bO1Lx4_Ql4ZhF42d9oYvUhdif4tXpCzJ-mA_hVKTvPuHtxhQFVf9HBSotsM1KOUj8fL0ZXSytk543oMUlpXVdPI5TesmVqMqdih9Z79xvbN1BP1GE28DpkyroAy-Sxij6qvOiL0nQfDVf-tEZjMODdHd1OeQmzsd2KBHCZoZV4tbMu2AmKg9dJSb1nFYpP2342T9t7wtATZ8XAj5_ooImt4_TzHmbWatWGogjcmbVc2AULfiFMpjnI_rkgNVMOkQfO8gk0By1PLIaKawNCsyfekqFvaesLvX0rKW7a-sjoVpm6QxfueG1nv55Svpd0YQZVAjk'
 
@@ -89,9 +88,8 @@ var makeBiergarten = function (pwd) {
             for (var i = 0; i < gastro_list.length; i++) {
                 var d = coordinateDistance( { 'latitude': lat, 'longitude' : lon},
                                     { 'latitude': gastro_list[i].lat, 'longitude' : gastro_list[i].lon })
-				console.log( "DIST" + d);
-				
-				if (d < 100 && gastro_list.visited === false)
+
+				if ((d < 100) && (gastro_list[i].visited === false))
 				{
 					numberOfPois += 1;
 					gastro_list[i].visited = true;
@@ -104,20 +102,3 @@ var makeBiergarten = function (pwd) {
     };
     return thus;
 }
-
-
-
-
-/*
-
-var biergarten = makeBiergarten( 'xxx'); // replace
-biergarten.list(46.738419,11.958168,10000, printBiergarten);
-
-function printBiergarten(result) {
-    console.log(result)
-    for (var i = 0; i < result.TotalResults; i++) {
-        var gastro = result.Items[i];
-        console.log(  gastro.Latitude, gastro.Longitude, gastro.Shortname)
-    }
-} */
-
