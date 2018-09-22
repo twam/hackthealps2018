@@ -91,10 +91,8 @@ function initStats() {
 
 $(window).on('load', function(e) {
   // delete old items
- /* localStorage.removeItem("lastBiergartenSet");
-  v = localStorage.getItem("lastBiergartenSet")*/
-  
-
+  localStorage.removeItem("lastBiergartenSet");
+ 
   biergarten = makeBiergarten('$h4cKth34lpS');
   tamagochi = make_tamagochi();
   
