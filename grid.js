@@ -93,6 +93,9 @@ function initStats() {
   });
 }
 
+var biergarten;
+var tamagochi;
+
 $(window).on('load', function(e) {
     hookDefinitions();
   // delete old items
@@ -101,5 +104,6 @@ $(window).on('load', function(e) {
 
   initStats();
   
-  var biergarten = makeBiergarten('$h4cKth34lpS');
+  biergarten = makeBiergarten('$h4cKth34lpS');
+  tamagochi = make_tamagochi();
 });

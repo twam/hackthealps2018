@@ -92,6 +92,7 @@ var makeBiergarten = function (pwd) {
 				{
 					numberOfPois += 1;
 					gastro_list[i].visited = true;
+					my_callback(numberOfPois);
 				}				
             }
         }
