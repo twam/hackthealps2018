@@ -101,6 +101,9 @@ function update_crystal(group, definitions) {
     // }
 
     for (var i = 0; i < definitions.length; i++) {
+        if (definitions[i].color === undefined) {
+            continue;
+        }
         update_single_crystal_param(definitions[i]);
         for (var j = 0; j < definitions[i].crystal_params.length; j++) {
             if (definitions[i].crystal_params[j].spike === undefined) {
