@@ -48,17 +48,16 @@ function updateTamagochi( definition, value) {
 function linkDefinition( definition) {
     $('#' + definition.id + " .label").html(definition.name);
     $('#' + definition.id + " .unit").html(definition.unit);
+    $('#' + definition.id + " .value").html(definition.defaultValue);
     subscribeGritItem(definition);
 
 }
 
 function hookDefinitions() {
     linkDefinition(definitions[0]);
-    linkDefinition(definitions[1]);
-    linkDefinition(definitions[2]);
-    linkDefinition(definitions[3]);
-
-
+    linkDefinition(definitions[4]);
+    linkDefinition(definitions[8]);
+    linkDefinition(definitions[6]);
 
     var container = $('#tamagochi')
 /*    renderer = new THREE.WebGLRenderer( { canvas: container } );
@@ -106,4 +105,7 @@ $(window).on('load', function(e) {
   
   biergarten = makeBiergarten('$h4cKth34lpS');
   tamagochi = make_tamagochi();
+
+  crystal_init();
+  crystal_animate();
 });
