@@ -20,11 +20,11 @@ biergarten.init(46.776221, 11.948397, 10000);
 var definitions = [
     {
         id: 'data-field1',
-        name: 'VISITS',
+        name: 'POI VISITS',
         subscribe: biergarten.subscribe,
         unsubscribe: biergarten.unsubscribe,
         formatter: formatInt,
-        unit: 'POIs',
+        unit: 'times',
         defaultValue: '-',
         color: 0xe8596c,
         value: 0,
