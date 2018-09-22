@@ -41,10 +41,10 @@ function crystal_init(definitions) {
     camera.position.z = 600;
     scene.add(camera);
 
-    // COBI.rideService.speed.subscribe(function(value) {
-    //     var speed = value * 3.6
-    //     crystal_animation_speedfactor = speed >= 20 ? 0 : (1+Math.sin(Math.PI/2+Math.PI*speed/(20)))/2;
-    // })
+    COBI.rideService.speed.subscribe(function(value) {
+        var speed = value * 3.6
+        crystal_animation_speedfactor = speed >= 20 ? 0 : (1+Math.sin(Math.PI/2+Math.PI*speed/(20)))/2;
+    })
 
     var light = new THREE.PointLight( 0xffffff, 3, 700 );
 
