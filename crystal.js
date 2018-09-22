@@ -10,6 +10,8 @@ var mouseXOnMouseDown = 0;
 var crystal_width ;
 var crystal_height;
 
+
+
 function crystal_init() {
     container = document.createElement('div');
     $('#tamagochi').append(container);
@@ -18,7 +20,7 @@ function crystal_init() {
 
 
     crystal_width = container.offsetWidth;
-    crystal_height = window.innerHeight;
+    crystal_height = $('#tamagochi').height();
 
 
     camera = new THREE.PerspectiveCamera(50, crystal_width / crystal_height, 1, 1000);
@@ -94,7 +96,7 @@ function crystal_init() {
 function onWindowResize() {
 
     crystal_width = container.offsetWidth;
-    crystal_height = window.innerHeight;
+    crystal_height = $('#tamagochi').height();
 
     camera.aspect = crystal_width/ crystal_height;
     camera.updateProjectionMatrix();
