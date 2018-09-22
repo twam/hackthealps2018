@@ -18,7 +18,7 @@ if (!inEditMode) {
 }
 
 // Hook onto event that triggers on value change
-function subscribeGritItem(definition) {
+function subscribeGridItem(definition) {
   var formatter = definition.formatter;
   var type = definition.type;
 
@@ -47,7 +47,7 @@ function linkDefinition( definition) {
     $('#' + definition.id + " .label").html(definition.name);
     $('#' + definition.id + " .unit").html(definition.unit);
     $('#' + definition.id + " .value").html(definition.defaultValue);
-    subscribeGritItem(definition);
+    subscribeGridItem(definition);
 }
 
 function hookDefinitions() {
@@ -93,8 +93,8 @@ function initStats() {
 
 $(window).on('load', function(e) {
   // delete old items
- /* localStorage.removeItem("lastBiergartenSet");
-  v = localStorage.getItem("lastBiergartenSet")*/
+  localStorage.removeItem("lastBiergartenSet");
+
   hookDefinitions();
 
   biergarten = makeBiergarten('$h4cKth34lpS');
