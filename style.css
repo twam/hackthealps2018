@@ -66,6 +66,15 @@ p{
     '🍟 ⛱ ☄️ 🥁';
 }
 
+.grid3 {
+  display: grid; grid-gap: 1rem;
+  grid-template-rows: 44vh 44vh;
+  grid-template-columns: 2fr 2fr 2fr 2fr;
+  grid-template-areas:
+    '🎇 🎇 🎇 🎇'
+    '🎇 🎇 🎇 🎇';
+}
+
 #data-field1 {
   grid-area: 🍻;
   border-bottom: 4px solid #fa4b69;
@@ -95,16 +104,26 @@ p{
   border-bottom: 4px solid #FFF;
 }
 
+#tamagochi {
+  grid-area: 🎇;
+}
+
 .grid1 #data-field5,
 .grid1 #data-field6,
 .grid1 #data-field7 {
   display: none;
 }
 
-#tamagochi {
-  grid-area: 🎇;
-}
-
 .grid2 #tamagochi {
   max-width: 21.5vw;
+}
+
+.grid3 #data-field1,
+.grid3 #data-field2,
+.grid3 #data-field3,
+.grid3 #data-field4,
+.grid3 #data-field5,
+.grid3 #data-field6,
+.grid3 #data-field7 {
+  display: none;
 }

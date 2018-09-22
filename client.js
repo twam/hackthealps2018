@@ -20,7 +20,7 @@ biergarten.init(46.776221, 11.948397, 10000);
 var definitions = [
     {
         id: 'data-field1',
-        name: 'POI Count',
+        name: 'VISITS',
         subscribe: biergarten.subscribe,
         unsubscribe: biergarten.unsubscribe,
         formatter: formatInt,
