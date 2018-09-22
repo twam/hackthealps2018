@@ -29,15 +29,14 @@ function subscribeGritItem(definition) {
   } else if (type === 'tamagochi') {
       definition.unsubscribe();
       definition.subscribe(function(value) {
-        updateTamagochi( definition, value.time );
-
-
+        updateTamagochi(definition, value.time );
       });
       setInterval( function() {
           tamagochi.update( "time", Date.now())
       }, 3000);
   }
 }
+
 
 function updateTamagochi( definition, value) {
    $('#' + definition.id + '_value').html(`${value}`);
