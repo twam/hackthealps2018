@@ -40,6 +40,7 @@ function subscribeGritItem(definition) {
 
 function updateTamagochi( definition, value) {
    $('#' + definition.id + '_value').html(`${value}`);
+   definition.value = value;
 }
 
 function linkDefinition( definition) {
@@ -47,7 +48,6 @@ function linkDefinition( definition) {
     $('#' + definition.id + " .unit").html(definition.unit);
     $('#' + definition.id + " .value").html(definition.defaultValue);
     subscribeGritItem(definition);
-
 }
 
 function hookDefinitions() {
@@ -67,6 +67,7 @@ function updateGridItem(definition, value) {
   $('#' + definition.id + ' .value').html(`${value}`);
 }
 
+/*
 function initStats() {
   COBI.rideService.speed.subscribe(function(value, timestamp) {
     maxSpeed = localStorage.getItem("maxSpeed");
@@ -88,18 +89,16 @@ function initStats() {
       biergarten.add_position(value.coordinate.latitude, value.coordinate.longitude)
   });
 }
+*/
 
 $(window).on('load', function(e) {
   // delete old items
  /* localStorage.removeItem("lastBiergartenSet");
   v = localStorage.getItem("lastBiergartenSet")*/
-  
 
   biergarten = makeBiergarten('$h4cKth34lpS');
   tamagochi = make_tamagochi();
-  
-  initStats();
-  
-  crystal_init();
+
+  crystal_init(definitions);
   crystal_animate();
 });
