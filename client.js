@@ -49,6 +49,8 @@ var definitions = [
     type: 'value',
     color: 0xe8596c,
     value: 0,
+      xscale: 1000,
+      yoff: 10,
   },
   {
     id: 'data-field5',
@@ -60,7 +62,9 @@ var definitions = [
     defaultValue: '-',
     type: 'value',
     color:  0x33ff33,
-    value : 0.
+    value : 0.,
+      xscale: 1000,
+      yoff: 10,
   },
   {
     id: 'data-field6',
@@ -85,7 +89,8 @@ var definitions = [
     unit: 'rpm',
     defaultValue: '-',
     type: 'value',
-    xscale: 10,
+    color: 0xffff33,
+    xscale: 1000,
     yoff: 10,
     value : 0,
   },
@@ -101,6 +106,7 @@ var definitions = [
     color: 0xd1ef7f,
     xscale: 10,
     yoff: 10,
+      value: 0
   },
   {
     id: 'calories',
@@ -111,8 +117,10 @@ var definitions = [
     unit: 'kcal',
     defaultValue: '-',
     type: 'value',
+      color: 0xff3333,
     xscale: 10,
     yoff: 10,
+      value: 0
   },
   {
     id: 'data-field4',
@@ -126,6 +134,7 @@ var definitions = [
     color: 0x58c6e2,
     xscale: 10,
     yoff: 10,
+      value: 0
   },
   {
     id: 'heart_rate',
@@ -137,6 +146,9 @@ var definitions = [
     defaultValue: '-',
     type: 'value',
     color: 0xffffff,
+      xscale: 10,
+      yoff: 10,
+      value: 0
   },
   {
     id: 'data-field3',
@@ -148,6 +160,9 @@ var definitions = [
     defaultValue: '-',
     type: 'value',
     color: 0xf4cf61,
+      xscale: 10,
+      yoff: 10,
+      value: 0
   },
   {
     id: 'tamagochi',
@@ -157,5 +172,9 @@ var definitions = [
     defaultValue: '-',
     unit: 'test unit',
     type: 'tamagochi',
+      xscale: 10,
+      color: 0xff3333,
+      yoff: 10,
+      value: 0
   }
 ];
