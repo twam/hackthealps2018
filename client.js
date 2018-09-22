@@ -89,7 +89,7 @@ var definitions = [
         unit: 'km',
         defaultValue: '-',
         color: 0xd1ef7f,
-        xscale: 25,
+        xscale: 35,
         yoff: 25,
         value: 0
     },
