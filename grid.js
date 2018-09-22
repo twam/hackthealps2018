@@ -26,7 +26,7 @@ function subscribeGridItem(definition) {
       } else {
           updatePoiItem(definition, formatter(value.numberOfPois), value.lastPoi);
 		  
-		  COBI.app.textToSpeech.write({content : value.lastPoi, language : "en-US"});
+		  COBI.app.textToSpeech.write({content : "Have a beer in " + value.lastPoi, language : "en-US"});
 		  M.toast({html: value.lastPoi, displayLength: 5000, classes: "rounded"})
       }
   });
