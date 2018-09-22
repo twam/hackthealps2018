@@ -3,6 +3,9 @@
 var touchInteractionEnabled = false;
 var isPortrait = window.matchMedia('(orientation: portrait)').matches;
 
+var biergarten;
+var tamagochi;
+
 // Define getter and setters for saving and retrieving local storage variables or default variables
 
 if (inEditMode && isPortrait) {
@@ -92,9 +95,6 @@ function initStats() {
       biergarten.add_position(value.coordinate.latitude, value.coordinate.longitude)
   });
 }
-
-var biergarten;
-var tamagochi;
 
 $(window).on('load', function(e) {
     hookDefinitions();
