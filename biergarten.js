@@ -88,7 +88,7 @@ var makeBiergarten = function (pwd) {
                                     { 'latitude': gastro_list[i].lat, 'longitude' : gastro_list[i].lon })
 				console.log( "DIST" + d);
 				
-				if (d < 10 && gastro_list.visited === false)
+				if (d < 100 && gastro_list.visited === false)
 				{
 					numberOfPois += 1;
 					gastro_list[i].visited = true;
