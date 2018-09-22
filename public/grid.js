@@ -146,23 +146,15 @@ function subscribeGridItemWith(definition) {
       definition.unsubscribe();
       definition.subscribe(function(value) {
         updateTamagochi( definition, value.time );
-
-
       });
       setInterval( function() {
           tamagochi.update( "time", Date.now())
       }, 3000);
-    // definition.unsubscribe();
-    // definition.subscribe(function(value) {
-    //   updateGridItemWith(definition, formatter(value));
-    // });
-
   }
 }
 
-function updateTamagochi( definition, value) {
+function updateTamagochi(definition, value) {
     $('#' + definition.id + '_value').html(`${value}`);
-
 }
 
 // Update dom element with values for item

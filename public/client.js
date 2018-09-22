@@ -121,8 +121,8 @@ var definitions = [
   {
     id: 'tamagochi',
     name: 'tamagochi',
-      subscribe: tamagochi.subscribe,
-      unsubscribe: tamagochi.unsubscribe,
+    subscribe: tamagochi.subscribe,
+    unsubscribe: tamagochi.unsubscribe,
     defaultValue: '-',
     unit: 'test unit',
     type: 'tamagochi'

@@ -12,9 +12,9 @@ var make_tamagochi = function () {
             my_callback = undefined;
         },
 
-        update: function( key, value) {
+        update: function(key, value) {
             state[ key] = value;
-            my_callback( state);
+            my_callback(state);
         },
 
     };
