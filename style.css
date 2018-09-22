@@ -101,12 +101,6 @@ p{
   display: none;
 }
 
-.grid2 #data-field5,
-.grid2 #data-field6,
-.grid2 #data-field7 {
-  display: initial;
-}
-
 #tamagochi {
   grid-area: 🎇;
 }
