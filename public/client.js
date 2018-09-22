@@ -21,7 +21,7 @@ COBI.hub.externalInterfaceAction.subscribe(function(action) {
 
 // Display detailled item names if touch interaction is allowed
 COBI.app.touchInteractionEnabled.subscribe(function(touchInteractionEnabled) {
-  updateInterfaceVisibility(touchInteractionEnabled);
+//  updateInterfaceVisibility(touchInteractionEnabled);
 });
 
 var tamagochi = make_tamagochi();
@@ -29,7 +29,7 @@ var tamagochi = make_tamagochi();
 // Define id, name, events, formatting functions, units and default value for each item
 var definitions = [
   {
-    id: 'speed',
+    id: 'data-field1',
     name: 'Speed',
     subscribe: COBI.rideService.speed.subscribe,
     unsubscribe: COBI.rideService.speed.unsubscribe,
@@ -39,7 +39,7 @@ var definitions = [
     type: 'value',
   },
   {
-    id: 'average_speed',
+    id: 'data-field2',
     name: 'Avg Speed',
     subscribe: COBI.tourService.averageSpeed.subscribe,
     unsubscribe: COBI.tourService.averageSpeed.unsubscribe,
@@ -49,7 +49,7 @@ var definitions = [
     type: 'value',
   },
   {
-    id: 'user_power',
+    id: 'data-field3',
     name: 'User Power',
     subscribe: COBI.rideService.userPower.subscribe,
     unsubscribe: COBI.rideService.userPower.unsubscribe,
@@ -59,7 +59,7 @@ var definitions = [
     type: 'value',
   },
   {
-    id: 'cadence',
+    id: 'data-field4',
     name: 'Cadence',
     subscribe: COBI.rideService.cadence.subscribe,
     unsubscribe: COBI.rideService.cadence.unsubscribe,

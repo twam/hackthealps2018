@@ -1,50 +1,78 @@
+
 @import url(https://cdn.cobi.bike/static/fonts/UniSansRegular.css);
 @import url(https://cdn.cobi.bike/static/fonts/UniSansRegularItalic.css);
 
-body, html{
-  overflow-x: hidden;
-  background-color: #1d1d23;
-  font: 100 1.9rem/20px 'UniSansRegularItalic', Avenir, Heveltica, Arial, san-serif; color: #FFF;
-  text-align: center !important;
+html {
+  background: #1d1d23;
+  margin:1vw;
+  overflow: hidden;
 }
 
-ul {
-  margin-left:3px !important;
-  margin-right:-2px !important;
+.face{
+  position: relative;
+  background-color: #2d2d36;
+  padding: 3vw 0 0 3vw;
+
 }
 
-.uk-card-default {
-    background: #2d2d37;
-    color: #FFF;
-    box-shadow: 0;
-    padding: .7rem .5rem;
+.value{
+  font-family: sans-serif;
+  font: 100 3.5rem/2rem 'UniSansRegularItalic', Heveltica, Arial, san-serif; color: #FFF;
+  margin: .8rem 0 1rem 0;
+  letter-spacing: .2rem;
 }
 
-.uk-grid-small li {
-  margin: 0 !important;
-  padding: 3px !important;
+.unit{
+  font-family: sans-serif;
+  font: 100 1.35rem/10px 'UniSansRegular', Heveltica, Arial, san-serif; color: #00c8e6;
+
 }
 
-
-.label {
-  font: 100 .45rem/15px 'UniSansRegularItalic', Avenir, Heveltica, Arial, san-serif; color: #666;
-  letter-spacing: .05rem;
+.label{
+  position: absolute;
+  bottom: 1rem;
+  font-family: sans-serif;
   text-transform: uppercase;
-  margin-bottom: 1.2rem;
+  font: 100 1.25rem/10px 'UniSansRegular', Heveltica, Arial, san-serif; color: #ABABAB;
+  letter-spacing: .07rem;
 }
 
-.value {
-  text-transform: uppercase;
+
+p{
+  font-family: sans-serif;
+  font: 100 1.1rem/10px 'UniSansRegular', Heveltica, Arial, san-serif; color: #00c8e6;
+}
+  
+.grid1 {
+  display: grid; grid-gap: 1rem;
+  grid-template-rows: 44vh 44vh;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-areas: 
+    '🍻 💩 🎇 🎇'
+    '🍟 ⛱ 🎇 🎇';
 }
 
-.unit {
-  font: 100 .55rem/22px 'UniSansRegular', Avenir, Heveltica, Arial, san-serif; color: #00c8e6;
-  margin-top: .8rem;
-  margin-bottom: 0;
-  letter-spacing: .05rem;  
+.grid2 {
+  display: grid; grid-gap: 1rem;
+  grid-template-rows: 44vh 44vh;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-areas: 
+    '🍻 🍻 💩 🎇'
+    '🍻 🍻 🍟 ⛱';
 }
 
-.inactive {
-  opacity: .3;
+#data-field1 {
+  grid-area: 🍻;
 }
-
+#data-field2 {
+  grid-area: 💩;
+}
+#data-field3 {
+  grid-area: 🍟;
+}
+#data-field4 {
+  grid-area: ⛱;
+}
+#tamagochi {
+  grid-area: 🎇;
+}
