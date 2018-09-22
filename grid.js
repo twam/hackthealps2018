@@ -71,24 +71,6 @@ function updateGridItem(definition, value) {
   $('#' + definition.id + ' .value').html(`${value}`);
 }
 
-function coordinateDistance(cord1, cord2) {
-  // https://www.movable-type.co.uk/scripts/latlong.html
-  var R = 6371e3; // metres
-  var φ1 = cord1.latitude * Math.PI / 180;
-  var φ2 = cord2.latitude* Math.PI / 180;
-  var Δφ = (cord2.latitude-cord1.latitude) * Math.PI / 180;
-  var Δλ = (cord2.longitude-cord1.longitude) * Math.PI / 180;
-
-  var a = Math.sin(Δφ/2) * Math.sin(Δφ/2) +
-        Math.cos(φ1) * Math.cos(φ2) *
-        Math.sin(Δλ/2) * Math.sin(Δλ/2);
-  var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-
-  var d = R * c;
-
-  return d;
-}
-
 function initStats() {
   COBI.rideService.speed.subscribe(function(value, timestamp) {
     maxSpeed = localStorage.getItem("maxSpeed");
@@ -99,8 +81,6 @@ function initStats() {
     }
   });
 
-  var biergarten = makeBiergarten('$h4cKth34lpS');
-
   COBI.mobile.location.subscribe(function(value, timestamp) {
       if (localStorage.getItem("lastBiergartenSet") === null) {
 
@@ -109,7 +89,7 @@ function initStats() {
 
           localStorage.setItem("lastBiergartenSet", true);
       }
-      biergarten.add_position( value.coordinate.latitude, value.coordinate.longitude)
+      biergarten.add_position(value.coordinate.latitude, value.coordinate.longitude)
   });
 }
 
@@ -120,4 +100,6 @@ $(window).on('load', function(e) {
   v = localStorage.getItem("lastBiergartenSet")*/
 
   initStats();
+  
+  var biergarten = makeBiergarten('$h4cKth34lpS');
 });
