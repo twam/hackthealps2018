@@ -69,12 +69,12 @@ var definitions = [
     type: 'value',
   },
   {
-    id: 'distance',
+    id: 'data-field2',
     name: 'Distance',
     subscribe: COBI.tourService.ridingDistance.subscribe,
     unsubscribe: COBI.tourService.ridingDistance.unsubscribe,
     formatter: formatDistanceDot1,
-    unit: 'km total',
+    unit: 'km',
     defaultValue: '-',
     type: 'value',
   },
@@ -89,7 +89,7 @@ var definitions = [
     type: 'value',
   },
   {
-    id: 'ascent',
+    id: 'data-field4',
     name: 'Ascent',
     subscribe: COBI.tourService.ascent.subscribe,
     unsubscribe: COBI.tourService.ascent.unsubscribe,
@@ -109,7 +109,7 @@ var definitions = [
     type: 'value',
   },
   {
-    id: 'duration',
+    id: 'data-field3',
     name: 'Duration',
     subscribe: COBI.tourService.ridingDuration.subscribe,
     unsubscribe: COBI.tourService.ridingDuration.unsubscribe,
