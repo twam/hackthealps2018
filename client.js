@@ -27,6 +27,7 @@ COBI.app.touchInteractionEnabled.subscribe(function(touchInteractionEnabled) {
     $('#maingrid').removeClass('grid1 grid3');
     $('#maingrid').addClass('grid2');
   }
+  onWindowResize();
 });
 
 biergarten = makeBiergarten('$h4cKth34lpS');
