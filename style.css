@@ -68,15 +68,24 @@ p{
 
 #data-field1 {
   grid-area: 🍻;
+  display: block;
+  border-bottom: 4px solid #fa4b69;
 }
 #data-field2 {
   grid-area: 💩;
+  display: block;
+  border-bottom: 4px solid #c8f26d;
+
 }
 #data-field3 {
   grid-area: 🍟;
+  display: block;
+  border-bottom: 4px solid #facf47;
 }
 #data-field4 {
   grid-area: ⛱;
+  display: block;
+  border-bottom: 4px solid #b5246d;
 }
 #tamagochi {
   grid-area: 🎇;
