@@ -41,17 +41,16 @@ function crystal_init(definitions) {
     camera.position.z = 600;
     scene.add(camera);
 
-    COBI.rideService.speed.subscribe(function(value) {
-        var speed = value * 3.6
-        crystal_animation_speedfactor = speed >= 20 ? 0 : (1+Math.sin(Math.PI/2+Math.PI*speed/(20)))/2;
-    })
+    // COBI.rideService.speed.subscribe(function(value) {
+    //     var speed = value * 3.6
+    //     crystal_animation_speedfactor = speed >= 20 ? 0 : (1+Math.sin(Math.PI/2+Math.PI*speed/(20)))/2;
+    // })
 
     var light = new THREE.PointLight( 0xffffff, 3, 700 );
 
     camera.add(light);
 
     group = new THREE.Group();
-    group.position.y = 0;
     scene.add(group);
 
     init_crystal_params(definitions);
@@ -81,7 +80,8 @@ function update_single_crystal_param(definition) {
             ry: Math.random() * 2 * Math.PI,
             rz: Math.random() * 2 * Math.PI,
             lengthFactor: Math.random(),
-            s: s
+            s: s,
+            spike: undefined,
         }
         definition.crystal_params.push(param)
     }
@@ -95,23 +95,24 @@ function init_crystal_params(definitions) {
 }
 
 function update_crystal(group, definitions) {
-    scene.remove(group);
-
-    var childs = group.children;
-    for (var k = 0; childs.length; k++) {
-        group.remove( childs[k]);
-    }
+    // var childs = group.children;
+    // for (var k = 0; childs.length; k++) {
+    //     group.remove( childs[k]);
+    // }
 
     for (var i = 0; i < definitions.length; i++) {
-        console.log("HIER:", definitions[i].name, definitions[i].value);
         update_single_crystal_param(definitions[i]);
         for (var j = 0; j < definitions[i].crystal_params.length; j++) {
-            var spike = create_spike( definitions[i].crystal_params[j]);
-            group.add(spike);
+            if (definitions[i].crystal_params[j].spike === undefined) {
+                var spike = create_spike(definitions[i].crystal_params[j]);
+                group.add(spike);
+                definitions[i].crystal_params[j].spike = spike;
+            } else {
+                definitions[i].crystal_params[j].spike.scale.z = definitions[i].crystal_params[j].s;
+                // modify spike
+            }
         }
     }
-
-    scene.add(group);
 }
 
 
@@ -153,20 +154,13 @@ function onWindowResize() {
     renderer.setSize(crystal_width, crystal_height);
 }
 
-var animation;
-
-/*
 window.setInterval(function() {
-    cancelAnimationFrame( animation);
     update_crystal(group, definitions);
-    crystal_animate();
-}, 1000);*/
+}, 1000);
 
 
 function crystal_animate() {
-
-    animation = requestAnimationFrame(crystal_animate);
-
+    requestAnimationFrame(crystal_animate);
     group.rotation.y += crystal_animation_speedfactor*0.02;
     group.rotation.z += crystal_animation_speedfactor*0.005;
     renderer.render(scene, camera);

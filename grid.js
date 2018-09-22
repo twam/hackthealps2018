@@ -18,7 +18,7 @@ if (!inEditMode) {
 function subscribeGridItem(definition) {
   var formatter = definition.formatter;
   var type = definition.type;
-  
+
   definition.unsubscribe();
   definition.subscribe(function(value) {
 	updateGridItem(definition, formatter(value));
@@ -54,6 +54,7 @@ function hookDefinitions() {
 function updateGridItem(definition, value) {
   $('#' + definition.id + ' .value').html(`${value}`);
    // update_crystal(group, definitions);
+  definition.value = value;
 
 }
 
