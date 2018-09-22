@@ -2,7 +2,22 @@
 
 var make_tamagochi = function () {
     var state = {};
-    var my_callback;	
+    var my_callback;
+
+	function init() {
+	  COBI.tourService.ridingDistance.subscribe(function(value) {
+	    state['distance'] = value;
+	  })
+	  COBI.tourService.ridingDuration.subscribe(function(value) {
+	    state['duration'] = value;
+	  })
+	  COBI.tourService.ascent.subscribe(function(value) {
+	    state['ascent'] = value;
+	  })
+	}
+	
+	init();
+	
     var thus = {
         subscribe: function(callback) {
             my_callback = callback;
@@ -16,17 +31,6 @@ var make_tamagochi = function () {
             state[key] = value;
             my_callback(state);
         },
-		init: function(){
-	      COBI.tourService.ridingDistance.subscribe(function(value) {
-	        state['distance'] = value;
-	      })
-	      COBI.tourService.ridingDuration.subscribe(function(value) {
-	        state['duration'] = value;
-	      })
-	      COBI.tourService.ascent.subscribe(function(value) {
-	        state['ascent'] = value;
-	      })
-	    }
     };
     return thus;
 }
