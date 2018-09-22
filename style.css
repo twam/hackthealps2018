@@ -63,6 +63,7 @@ p{
 
 #data-field1 {
   grid-area: 🍻;
+  background: #ee3333;
 }
 #data-field2 {
   grid-area: 💩;
