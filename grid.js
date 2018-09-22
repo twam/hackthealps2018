@@ -58,6 +58,9 @@ function hookDefinitions() {
     linkDefinition(definitions[4]);
     linkDefinition(definitions[8]);
     linkDefinition(definitions[6]);
+    linkDefinition(definitions[1]);
+    linkDefinition(definitions[2]);
+    linkDefinition(definitions[3]);
 
     var container = $('#tamagochi')
 /*    renderer = new THREE.WebGLRenderer( { canvas: container } );

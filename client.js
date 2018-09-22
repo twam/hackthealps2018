@@ -49,7 +49,7 @@ var definitions = [
     type: 'value',
   },
   {
-    id: 'data-field2',
+    id: 'data-field5',
     name: 'Avg Speed',
     subscribe: COBI.tourService.averageSpeed.subscribe,
     unsubscribe: COBI.tourService.averageSpeed.unsubscribe,
@@ -59,7 +59,7 @@ var definitions = [
     type: 'value',
   },
   {
-    id: 'data-field3',
+    id: 'data-field6',
     name: 'User Power',
     subscribe: COBI.rideService.userPower.subscribe,
     unsubscribe: COBI.rideService.userPower.unsubscribe,
@@ -69,7 +69,7 @@ var definitions = [
     type: 'value',
   },
   {
-    id: 'data-field4',
+    id: 'data-field7',
     name: 'Cadence',
     subscribe: COBI.rideService.cadence.subscribe,
     unsubscribe: COBI.rideService.cadence.unsubscribe,
