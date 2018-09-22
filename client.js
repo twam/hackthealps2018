@@ -28,8 +28,8 @@ var definitions = [
         defaultValue: '-',
         color: 0xe8596c,
         value: 0,
-        xscale: 1000,
-        yoff: 10,
+        xscale: 10,
+        yoff: 25,
     },
     {
         id: 'data-field5',
@@ -40,8 +40,6 @@ var definitions = [
         unit: 'Ø km/h',
         defaultValue: '-',
         value: 0.,
-        xscale: 1000,
-        yoff: 10,
     },
     {
         id: 'data-field6',
@@ -51,8 +49,6 @@ var definitions = [
         formatter: formatInt,
         unit: 'watts',
         defaultValue: '-',
-        xscale: 10,
-        yoff: 10,
         value: 0,
     },
     {
@@ -63,8 +59,6 @@ var definitions = [
         formatter: formatInt,
         unit: 'rpm',
         defaultValue: '-',
-        xscale: 1000,
-        yoff: 10,
         value: 0,
     },
     {
@@ -76,8 +70,8 @@ var definitions = [
         unit: 'km',
         defaultValue: '-',
         color: 0xd1ef7f,
-        xscale: 10,
-        yoff: 10,
+        xscale: 0.1,
+        yoff: 25,
         value: 0
     },
     {
@@ -88,8 +82,6 @@ var definitions = [
         formatter: formatInt,
         unit: 'kcal',
         defaultValue: '-',
-        xscale: 10,
-        yoff: 10,
         value: 0
     },
     {
@@ -101,8 +93,8 @@ var definitions = [
         unit: 'm',
         defaultValue: '-',
         color: 0x58c6e2,
-        xscale: 10,
-        yoff: 10,
+        xscale: 1,
+        yoff: 25,
         value: 0
     },
     {
@@ -113,8 +105,6 @@ var definitions = [
         formatter: formatInt,
         unit: 'bpm',
         defaultValue: '-',
-        xscale: 10,
-        yoff: 10,
         value: 0
     },
     {
@@ -126,8 +116,8 @@ var definitions = [
         unit: 'min',
         defaultValue: '-',
         color: 0xf4cf61,
-        xscale: 10,
-        yoff: 10,
+        xscale: 0.1,
+        yoff: 25,
         value: 0
     },
 ];

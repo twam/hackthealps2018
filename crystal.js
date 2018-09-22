@@ -71,7 +71,7 @@ function crystal_init(definitions) {
 
 function update_single_crystal_param(definition) {
     var s = scaleit(definition);
-    var new_number = Math.floor(s);
+    var new_number = Math.floor(s)/5;
 
     for (var j = definition.crystal_params.length; j < new_number; j++) {
         param = {
@@ -111,7 +111,7 @@ function update_crystal(group, definitions) {
                 group.add(spike);
                 definitions[i].crystal_params[j].spike = spike;
             } else {
-                definitions[i].crystal_params[j].spike.scale.z = definitions[i].crystal_params[j].s;
+                definitions[i].crystal_params[j].spike.scale.z = definitions[i].crystal_params[j].s/100;
                 // modify spike
             }
         }
@@ -123,7 +123,7 @@ function update_crystal(group, definitions) {
 function create_spike(param) {
 
     var extrudeSettings = {
-        depth: (0.75+0.5*param.lengthFactor)*param.s,  // Length
+        depth: (0.75+0.5*param.lengthFactor)*100,  // Length
         bevelEnabled: true, // Top
         bevelSegments: 1,
         steps: 1,
