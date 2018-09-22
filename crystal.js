@@ -1,3 +1,5 @@
+"use strict";
+
 var container, scene, camera, renderer, group;
 
 var targetRotation = 0;
@@ -78,7 +80,7 @@ function update_single_crystal_param(definition) {
     }
 
     for (var j = definition.crystal_params.length; j < new_number; j++) {
-        param = {
+        var param = {
             color: definition.color,
             rx: Math.random() * 2 * Math.PI,
             ry: Math.random() * 2 * Math.PI,
@@ -160,12 +162,6 @@ function onWindowResize() {
 
     renderer.setSize(crystal_width, crystal_height);
 }
-
-window.setInterval(function() {
-    update_crystal(group, definitions);
-}, 1000);
-
-
 function crystal_animate() {
     requestAnimationFrame(crystal_animate);
     group.rotation.y += crystal_animation_speedfactor*0.02;
