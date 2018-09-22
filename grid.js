@@ -102,4 +102,8 @@ $(window).on('load', function(e) {
   initStats();
   
   var biergarten = makeBiergarten('$h4cKth34lpS');
+
+  crystal_init();
+  crystal_animate();
+
 });
