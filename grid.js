@@ -41,6 +41,7 @@ function subscribeGridItem(definition) {
 function updateTamagochi( definition, value) {
    $('#' + definition.id + '_value').html(`${value}`);
    definition.value = value;
+  //  update_crystal(group, definitions);
 }
 
 function linkDefinition( definition) {
@@ -65,6 +66,8 @@ function hookDefinitions() {
 // Update dom element with values for item
 function updateGridItem(definition, value) {
   $('#' + definition.id + ' .value').html(`${value}`);
+   // update_crystal(group, definitions);
+
 }
 
 /*

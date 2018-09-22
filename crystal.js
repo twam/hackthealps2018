@@ -18,6 +18,8 @@ var crystal_params = [];
 
 var hexShape;
 
+var group;
+
 function crystal_init(definitions) {
     container = document.createElement('div');
     $('#tamagochi').append(container);
@@ -98,6 +100,7 @@ function update_crystal( group, definitions) {
     }
 
     for (var i = 0; i < definitions.length; i++) {
+        console.log("HIER:", definitions[i].name, definitions[i].value);
         update_single_crystal_param( definitions[i]);
         for (var j = 0; j < definitions[i].crystal_params.length; j++) {
             var spike = create_spike( definitions[i].crystal_params[j]);
@@ -111,7 +114,7 @@ function update_crystal( group, definitions) {
 function create_spike(param) {
 
     var extrudeSettings = {
-        amount: param.length,  // Length
+        depth: param.length,  // Length
         bevelEnabled: true, // Top
         bevelSegments: 1,
         steps: 1,
@@ -146,6 +149,7 @@ function onWindowResize() {
 }
 
 function crystal_animate() {
+    // update_crystal(group, definitions);
     requestAnimationFrame(crystal_animate);
 
     group.rotation.y += crystal_animation_speedfactor*0.02;
