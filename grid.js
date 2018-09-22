@@ -1,3 +1,5 @@
+"use strict";
+
 // Define constants
 
 var touchInteractionEnabled = false;
@@ -86,4 +88,9 @@ $(window).on('load', function(e) {
 
   crystal_init(definitions);
   crystal_animate();
+    window.setInterval(function() {
+        update_crystal(group, definitions);
+    }, 1000);
+
+
 });

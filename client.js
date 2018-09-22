@@ -1,3 +1,5 @@
+"use strict";
+
 COBI.init('token');
 
 // Make clock appear in upper right corner
@@ -27,9 +29,10 @@ COBI.app.touchInteractionEnabled.subscribe(function(touchInteractionEnabled) {
     $('#maingrid').removeClass('grid1 grid3');
     $('#maingrid').addClass('grid2');
   }
+  onWindowResize();
 });
 
-biergarten = makeBiergarten('$h4cKth34lpS');
+var biergarten = makeBiergarten('$h4cKth34lpS');
 biergarten.init(46.776221, 11.948397, 10000);
 
 // Define id, name, events, formatting functions, units and default value for each item
