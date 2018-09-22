@@ -40,7 +40,7 @@ var definitions = [
         subscribe: biergarten.subscribe,
         unsubscribe: biergarten.unsubscribe,
         formatter: formatInt,
-        unit: 'times',
+        unit: '',
         defaultValue: '-',
         color: 0xe8596c,
         value: 0,
