@@ -11,26 +11,28 @@ var makeBiergarten = function (pwd) {
     var gastro_list = [];
 
     function get_token(userid, password, callback) {
-        var payload = {
-            "username": userid,
-            "pswd": password
-        };
+  //       var payload = {
+  //           "username": userid,
+  //           "pswd": password
+  //       };
 
-		BEARER_TOKEN = localStorage.getItem("bearerToken");
-		if (BEARER_TOKEN === null)
-		{
-			$.ajax(
-				LOGIN_URI, {
-					method: 'POST',
-					data: payload,
-					success: function (result) {
-						set_bearer_token( result);
-						callback();
-					}
-				});
-		} else {
-            callback();
-        }
+		// BEARER_TOKEN = localStorage.getItem("bearerToken");
+		// if (BEARER_TOKEN === null)
+		// {
+		// 	$.ajax(
+		// 		LOGIN_URI, {
+		// 			method: 'POST',
+		// 			data: payload,
+		// 			success: function (result) {
+		// 				set_bearer_token( result);
+		// 				callback();
+		// 			}
+		// 		});
+		// } else {
+  //           callback();
+  //       }
+
+        callback();;
     }
 
     function set_bearer_token(token) {
