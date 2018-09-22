@@ -9,6 +9,12 @@ var mouseXOnMouseDown = 0;
 
 var crystal_width;
 var crystal_height;
+var crystal_animation_speedfactor = 1.0;
+
+var hexShape;
+
+
+var crystal_params = [];
 
 var hexShape;
 
@@ -29,11 +35,14 @@ function crystal_init(definitions) {
     crystal_width = $('#tamagochi').width();
     crystal_height = $('#tamagochi').height();
 
+
     camera = new THREE.PerspectiveCamera(60, crystal_width / crystal_height, 1, 1000);
     camera.position.z = 600;
     scene.add(camera);
 
-
+    COBI.rideService.speed.subscribe(function(value) {
+        crystal_animation_speedfactor = value >= 10 ? 0 : (1+Math.sin(Math.PI/2+Math.PI*value/(10)))/2;
+    })
 
     var light = new THREE.PointLight( 0xffffff, 3, 700 );
 
@@ -43,13 +52,9 @@ function crystal_init(definitions) {
     group.position.y = 0;
     scene.add(group);
 
-    function addShape(shape, extrudeSettings, color, x, y, z, rx, ry, rz, s) {
-        var geometry = new THREE.ExtrudeGeometry(shape, extrudeSettings);
-
     init_crystal_params(definitions);
 
     update_crystal(group, definitions);
-
     renderer = new THREE.WebGLRenderer({
         antialias: true
     });
@@ -64,6 +69,7 @@ function crystal_init(definitions) {
 
 function update_single_crystal_param(definition) {
     var s = scaleit(definition);
+
     var new_number = Math.floor( s);
     for (var j = definition.crystal_params.length; j < new_number; j++) {
         param = {
@@ -139,10 +145,9 @@ function onWindowResize() {
 }
 
 function crystal_animate() {
-    targetRotation = 0.02;
     requestAnimationFrame(crystal_animate);
 
-    group.rotation.y += targetRotation;
-    group.rotation.z += 0.005;
+    group.rotation.y += crystal_animation_speedfactor*0.02;
+    group.rotation.z += crystal_animation_speedfactor*0.005;
     renderer.render(scene, camera);
 }
