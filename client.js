@@ -47,6 +47,8 @@ var definitions = [
     unit: 'km/h',
     defaultValue: '-',
     type: 'value',
+    color: 0xff3333,
+    value: 0,
   },
   {
     id: 'data-field5',
@@ -57,6 +59,8 @@ var definitions = [
     unit: 'Ø km/h',
     defaultValue: '-',
     type: 'value',
+    color:  0x33ff33,
+    value : 0.
   },
   {
     id: 'data-field6',
@@ -67,6 +71,10 @@ var definitions = [
     unit: 'watts',
     defaultValue: '-',
     type: 'value',
+    color: 0x3333ff,
+    xscale: 10,
+    yoff: 10,
+    value : 0,
   },
   {
     id: 'data-field7',
@@ -77,6 +85,10 @@ var definitions = [
     unit: 'rpm',
     defaultValue: '-',
     type: 'value',
+    color: 0xffff33,
+    xscale: 10,
+    yoff: 10,
+    value : 0,
   },
   {
     id: 'data-field2',
@@ -87,6 +99,8 @@ var definitions = [
     unit: 'km',
     defaultValue: '-',
     type: 'value',
+    xscale: 10,
+    yoff: 10,
   },
   {
     id: 'calories',
@@ -97,6 +111,8 @@ var definitions = [
     unit: 'kcal',
     defaultValue: '-',
     type: 'value',
+    xscale: 10,
+    yoff: 10,
   },
   {
     id: 'data-field4',
@@ -107,6 +123,8 @@ var definitions = [
     unit: 'm',
     defaultValue: '-',
     type: 'value',
+    xscale: 10,
+    yoff: 10,
   },
   {
     id: 'heart_rate',
