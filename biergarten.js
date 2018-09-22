@@ -17,19 +17,23 @@ var makeBiergarten = function (pwd) {
             "pswd": password
         };
 
-        $.ajax(
-            LOGIN_URI, {
-                method: 'POST',
-                data: payload,
-                success: function (result) {
-                    set_bearer_token( result);
-                    callback();
-                }
-            });
+		BEARER_TOKEN = localStorage.getItem("bearerToken");
+		if (BEARER_TOKEN === null)
+			$.ajax(
+				LOGIN_URI, {
+					method: 'POST',
+					data: payload,
+					success: function (result) {
+						set_bearer_token( result);
+						callback();
+					}
+				});
+		}
     }
 
     function set_bearer_token(token) {
-        BEARER_TOKEN = token.access_token
+        BEARER_TOKEN = token.access_token;
+		localStorage.setItem("bearerToken", BEARER_TOKEN);
     }
 
     function store_biergarten_list( lat, lon, rad)  {
