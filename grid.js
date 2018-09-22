@@ -18,13 +18,16 @@ if (!inEditMode) {
 function subscribeGridItem(definition) {
   var formatter = definition.formatter;
   var type = definition.type;
-
+  
   definition.unsubscribe();
   definition.subscribe(function(value) {
       if ($.isNumeric(value)) {
           updateGridItem(definition, formatter(value));
       } else {
           updatePoiItem(definition, formatter(value.numberOfPois), value.lastPoi);
+		  
+		  COBI.app.textToSpeech.write({"content" : value.lastPoi});
+		  M.toast({html: value.lastPoi, displayLength: 5000, classes: "rounded"})
       }
   });
 }
@@ -59,14 +62,12 @@ function hookDefinitions() {
 function updateGridItem(definition, value) {
   $('#' + definition.id + ' .value').html(`${value}`);
    // update_crystal(group, definitions);
-  definition.value = value;
 
   definition.value = value;
 }
 
 $(window).on('load', function(e) {
   // delete old items
-//  localStorage.removeItem("lastBiergartenSet");
 
    hookDefinitions();
     COBI.mobile.location.subscribe(function(value, timestamp) {
