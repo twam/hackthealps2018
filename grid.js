@@ -21,12 +21,17 @@ function subscribeGridItem(definition) {
 
   definition.unsubscribe();
   definition.subscribe(function(value) {
-	updateGridItem(definition, formatter(value));
+      if ($.isNumeric(value)) {
+          updateGridItem(definition, formatter(value));
+      } else {
+          updatePoiItem(definition, formatter(value.numberOfPois), value.lastPoi);
+      }
   });
 }
 
-function updatePoi( definition, value) {
-   $('#' + definition.id + '_value').html(`${value}`);
+function updatePoiItem( definition, value, poiname) {
+   $('#' + definition.id + ' .value').html(`${value}`);
+   $('#' + definition.id + ' .unit').html(`${poiname}`);
    definition.value = value;
   //  update_crystal(group, definitions);
 }
@@ -56,6 +61,7 @@ function updateGridItem(definition, value) {
    // update_crystal(group, definitions);
   definition.value = value;
 
+  definition.value = value;
 }
 
 $(window).on('load', function(e) {
