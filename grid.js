@@ -38,7 +38,7 @@ function subscribeGridItem(definition) {
 
 function updatePoiItem( definition, value, poiname) {
    $('#' + definition.id + ' .value').html(`${value}`);
-   $('#' + definition.id + ' .unit').html(`${poiname}`);
+   //$('#' + definition.id + ' .unit').html(`${poiname}`);
    definition.value = value;
   //  update_crystal(group, definitions);
 }

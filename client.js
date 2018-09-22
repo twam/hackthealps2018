@@ -62,7 +62,7 @@ var definitions = [
     },
     {
         id: 'data-field6',
-        name: 'User Power',
+        name: 'Userpower',
         subscribe: COBI.rideService.userPower.subscribe,
         unsubscribe: COBI.rideService.userPower.unsubscribe,
         formatter: formatInt,
