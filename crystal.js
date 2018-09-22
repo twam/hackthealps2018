@@ -37,13 +37,13 @@ function crystal_init(definitions) {
     crystal_width = $('#tamagochi').width();
     crystal_height = $('#tamagochi').height();
 
-
     camera = new THREE.PerspectiveCamera(60, crystal_width / crystal_height, 1, 1000);
     camera.position.z = 600;
     scene.add(camera);
 
     COBI.rideService.speed.subscribe(function(value) {
-        crystal_animation_speedfactor = value >= 10 ? 0 : (1+Math.sin(Math.PI/2+Math.PI*value/(10)))/2;
+        var speed = value * 3.6
+        crystal_animation_speedfactor = speed >= 10 ? 0 : (1+Math.sin(Math.PI/2+Math.PI*speed/(10)))/2;
     })
 
     var light = new THREE.PointLight( 0xffffff, 3, 700 );
@@ -56,17 +56,18 @@ function crystal_init(definitions) {
 
     init_crystal_params(definitions);
 
+    window.addEventListener('resize', onWindowResize, false);
+
     update_crystal(group, definitions);
     renderer = new THREE.WebGLRenderer({
         antialias: true
     });
+
     renderer.setClearColor(0x25252d);
     renderer.setPixelRatio(window.devicePixelRatio);
 
     renderer.setSize(crystal_width, crystal_height);
     container.appendChild(renderer.domElement);
-
-    window.addEventListener('resize', onWindowResize, false);
 }
 
 function update_single_crystal_param(definition) {
@@ -137,10 +138,10 @@ function scaleit(definition) {
 }
 
 function onWindowResize() {
-
     crystal_width = $('#tamagochi').width();
     crystal_height = $('#tamagochi').height();
 
+    console.log("size: " + crystal_width+"x"+crystal_height);
     camera.aspect = crystal_width / crystal_height;
     camera.updateProjectionMatrix();
 

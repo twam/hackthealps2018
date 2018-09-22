@@ -95,7 +95,7 @@ function initStats() {
 
 $(window).on('load', function(e) {
   // delete old items
-  localStorage.removeItem("lastBiergartenSet");
+//  localStorage.removeItem("lastBiergartenSet");
 
    hookDefinitions();
     COBI.mobile.location.subscribe(function(value, timestamp) {
