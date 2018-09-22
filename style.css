@@ -68,9 +68,6 @@ p{
 
 #data-field1 {
   grid-area: 🍻;
-  /*background: #fa4b69;´*/
-  border: 1px;
-  border-style: dotted;
 }
 #data-field2 {
   grid-area: 💩;
