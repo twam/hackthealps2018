@@ -36,15 +36,19 @@ COBI.app.touchInteractionEnabled.subscribe(function(touchInteractionEnabled) {
   }
 });
 
+biergarten = makeBiergarten('$h4cKth34lpS');
+biergarten.init(46.776221,11.948397,10000);
+
+
 // Define id, name, events, formatting functions, units and default value for each item
 var definitions = [
   {
     id: 'data-field1',
-    name: 'Speed',
-    subscribe: COBI.rideService.speed.subscribe,
-    unsubscribe: COBI.rideService.speed.unsubscribe,
-    formatter: formatSpeedDot1,
-    unit: 'km/h',
+    name: 'Poi',
+    subscribe: biergarten.subscribe,
+    unsubscribe: biergarten.unsubscribe,
+    formatter: formatInt,
+    unit: 'Number of POI',
     defaultValue: '-',
     type: 'value',
     color: 0xe8596c,

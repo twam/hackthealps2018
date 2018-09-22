@@ -3,7 +3,6 @@
 var touchInteractionEnabled = false;
 var isPortrait = window.matchMedia('(orientation: portrait)').matches;
 
-var biergarten;
 var tamagochi;
 
 // Define getter and setters for saving and retrieving local storage variables or default variables
@@ -38,7 +37,7 @@ function subscribeGridItem(definition) {
   }
 }
 
-function updateTamagochi( definition, value) {
+function updatePoi( definition, value) {
    $('#' + definition.id + '_value').html(`${value}`);
    definition.value = value;
   //  update_crystal(group, definitions);
@@ -98,10 +97,10 @@ $(window).on('load', function(e) {
   // delete old items
   localStorage.removeItem("lastBiergartenSet");
 
-  hookDefinitions();
-
-  biergarten = makeBiergarten('$h4cKth34lpS');
-  tamagochi = make_tamagochi();
+   hookDefinitions();
+    COBI.mobile.location.subscribe(function(value, timestamp) {
+        biergarten.add_position(value.coordinate.latitude, value.coordinate.longitude)
+    });
 
   crystal_init(definitions);
   crystal_animate();
