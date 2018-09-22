@@ -18,7 +18,7 @@ html {
   position: absolute;
   top: 2.5rem;
   font-family: sans-serif;
-  font: 100 3rem/2rem 'UniSansRegularItalic', Heveltica, Arial, san-serif; color: #FFF;
+  font: 100 2.7rem/2.7rem 'UniSansRegularItalic', Heveltica, Arial, san-serif; color: #FFF;
   margin: 0rem 1rem .5rem 1.5rem;
   letter-spacing: .2rem;
 }
@@ -34,12 +34,12 @@ html {
 
 .label{
   position: absolute;
-  bottom: 1rem;
+  bottom: .5rem;
   font-family: sans-serif;
   text-transform: uppercase;
   font: 100 1rem/10px 'UniSansRegular', Heveltica, Arial, san-serif; color: #ABABAB;
   letter-spacing: .07rem;
-  margin: 2rem 1rem 1rem 1.5rem;
+  margin: 2rem 1rem .5rem 1.5rem;
 }
 
 
