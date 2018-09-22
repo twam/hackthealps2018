@@ -43,7 +43,7 @@ function crystal_init(definitions) {
 
     COBI.rideService.speed.subscribe(function(value) {
         var speed = value * 3.6
-        crystal_animation_speedfactor = speed >= 10 ? 0 : (1+Math.sin(Math.PI/2+Math.PI*speed/(10)))/2;
+        crystal_animation_speedfactor = speed >= 20 ? 0 : (1+Math.sin(Math.PI/2+Math.PI*speed/(20)))/2;
     })
 
     var light = new THREE.PointLight( 0xffffff, 3, 700 );
@@ -72,28 +72,31 @@ function crystal_init(definitions) {
 
 function update_single_crystal_param(definition) {
     var s = scaleit(definition);
+    var new_number = Math.floor(s);
 
-    var new_number = Math.floor( s);
     for (var j = definition.crystal_params.length; j < new_number; j++) {
         param = {
             color: definition.color,
             rx: Math.random() * 2 * Math.PI,
             ry: Math.random() * 2 * Math.PI,
             rz: Math.random() * 2 * Math.PI,
-            length: s,
+            lengthFactor: Math.random(),
+            s: s
         }
-        definition.crystal_params.push( param)
+        definition.crystal_params.push(param)
     }
 }
 
 function init_crystal_params(definitions) {
     for (var i = 0; i < definitions.length; i++) {
         definitions[i].crystal_params = [];
-        update_single_crystal_param( definitions[i]);
+        update_single_crystal_param(definitions[i]);
     }
 }
 
-function update_crystal( group, definitions) {
+function update_crystal(group, definitions) {
+    scene.remove(group);
+
     var childs = group.children;
     for (var k = 0; childs.length; k++) {
         group.remove( childs[k]);
@@ -101,12 +104,14 @@ function update_crystal( group, definitions) {
 
     for (var i = 0; i < definitions.length; i++) {
         console.log("HIER:", definitions[i].name, definitions[i].value);
-        update_single_crystal_param( definitions[i]);
+        update_single_crystal_param(definitions[i]);
         for (var j = 0; j < definitions[i].crystal_params.length; j++) {
             var spike = create_spike( definitions[i].crystal_params[j]);
             group.add(spike);
         }
     }
+
+    scene.add(group);
 }
 
 
@@ -114,12 +119,12 @@ function update_crystal( group, definitions) {
 function create_spike(param) {
 
     var extrudeSettings = {
-        depth: param.length,  // Length
+        depth: (0.75+0.5*param.lengthFactor)*param.s,  // Length
         bevelEnabled: true, // Top
         bevelSegments: 1,
         steps: 1,
-        bevelSize: 20, // diameter
-        bevelThickness: 35 //length of top
+        bevelSize: (0.9+0.2*param.lengthFactor)*20, // diameter
+        bevelThickness: (0.9+0.2*param.lengthFactor)*35 //length of top
     };
 
     var geometry = new THREE.ExtrudeGeometry(hexShape, extrudeSettings);
@@ -148,9 +153,18 @@ function onWindowResize() {
     renderer.setSize(crystal_width, crystal_height);
 }
 
+var animation;
+
+window.setInterval(function() {
+    cancelAnimationFrame()
+    update_crystal(group, definitions);
+    crystal_animate();
+}, 1000);
+
+
 function crystal_animate() {
-    // update_crystal(group, definitions);
-    requestAnimationFrame(crystal_animate);
+
+    animation = requestAnimationFrame(crystal_animate);
 
     group.rotation.y += crystal_animation_speedfactor*0.02;
     group.rotation.z += crystal_animation_speedfactor*0.005;
