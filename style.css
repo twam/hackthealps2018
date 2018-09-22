@@ -11,13 +11,13 @@ html {
 .face{
   position: relative;
   background-color: #2d2d36;
-  padding: 6vw 0 0 3vw;
+  padding: 0;
 }
 
 .value{
   font-family: sans-serif;
   font: 100 2.5rem/2rem 'UniSansRegularItalic', Heveltica, Arial, san-serif; color: #FFF;
-  padding-top: 1rem;
+  padding: 1rem 0 0 1.5rem;
   margin: 0 0 1rem 0;
   letter-spacing: .2rem;
 }
@@ -26,6 +26,7 @@ html {
   font-family: sans-serif;
   font: 100 1.35rem/10px 'UniSansRegular', Heveltica, Arial, san-serif; color: #00c8e6;
   letter-spacing: .1rem;
+  padding: 1rem 0 0 1.5rem;
 }
 
 .label{
@@ -35,6 +36,7 @@ html {
   text-transform: uppercase;
   font: 100 1.25rem/10px 'UniSansRegular', Heveltica, Arial, san-serif; color: #ABABAB;
   letter-spacing: .07rem;
+  padding: 1rem 0 0 1.5rem;
 }
 
 
