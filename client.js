@@ -1,3 +1,5 @@
+"use strict";
+
 COBI.init('token');
 
 // Make clock appear in upper right corner
@@ -30,7 +32,7 @@ COBI.app.touchInteractionEnabled.subscribe(function(touchInteractionEnabled) {
   onWindowResize();
 });
 
-biergarten = makeBiergarten('$h4cKth34lpS');
+var biergarten = makeBiergarten('$h4cKth34lpS');
 biergarten.init(46.776221, 11.948397, 10000);
 
 // Define id, name, events, formatting functions, units and default value for each item
@@ -41,7 +43,7 @@ var definitions = [
         subscribe: biergarten.subscribe,
         unsubscribe: biergarten.unsubscribe,
         formatter: formatInt,
-        unit: '',
+        unit: 'times',
         defaultValue: '-',
         color: 0xe8596c,
         value: 0,
@@ -60,7 +62,7 @@ var definitions = [
     },
     {
         id: 'data-field6',
-        name: 'User Power',
+        name: 'Userpower',
         subscribe: COBI.rideService.userPower.subscribe,
         unsubscribe: COBI.rideService.userPower.unsubscribe,
         formatter: formatInt,
