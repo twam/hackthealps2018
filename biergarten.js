@@ -40,14 +40,23 @@ var makeBiergarten = function (pwd) {
 
     function store_biergarten_list( lat, lon, rad)  {
         return function() {
-            $.ajax(BIERGARTEN_URI+"&pagesize=1024&categorycodefilter=524297&latitude="+ lat + "&longitude=" + lon + "&radius=" + rad, {
+       /*   Problem Same Origin Policy
+                $.ajax(BIERGARTEN_URI+"&pagesize=1024&categorycodefilter=524297&latitude="+ lat + "&longitude=" + lon + "&radius=" + rad, {
                 headers: { "Authorization": "Bearer " + BEARER_TOKEN},
                 success: consume_list,
-            });
+            }); */
+            $.ajax("bier.json", {
+                success: consume_list,
+                error: function(a,b,c) {
+                    alert(a);
+                    alert(c);
+            }});
+
         }
     }
 
-    function consume_list(result) {
+    function consume_list(result, status) {
+        console.log(status);
         for (var i = 0; i < result.TotalResults; i++) {
             var gastro = result.Items[i];
 			if (gastro !== undefined)
