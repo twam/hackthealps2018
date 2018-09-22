@@ -9,12 +9,34 @@ html {
 }
 
 .face{
-  color: white;
-  font-family: sans-serif;
-  font: 100 1.9rem/2rem 'UniSansRegularItalic', Heveltica, Arial, san-serif;
+  position: relative;
   background-color: #2d2d36;
   padding: 3vw 0 0 3vw;
+
 }
+
+.value{
+  font-family: sans-serif;
+  font: 100 3.5rem/2rem 'UniSansRegularItalic', Heveltica, Arial, san-serif; color: #FFF;
+  margin: .8rem 0 1rem 0;
+  letter-spacing: .2rem;
+}
+
+.unit{
+  font-family: sans-serif;
+  font: 100 1.35rem/10px 'UniSansRegular', Heveltica, Arial, san-serif; color: #00c8e6;
+
+}
+
+.label{
+  position: absolute;
+  bottom: 1rem;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  font: 100 1.25rem/10px 'UniSansRegular', Heveltica, Arial, san-serif; color: #ABABAB;
+  letter-spacing: .07rem;
+}
+
 
 p{
   font-family: sans-serif;
