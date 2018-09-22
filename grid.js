@@ -27,7 +27,9 @@ function subscribeGridItem(definition) {
           updatePoiItem(definition, formatter(value.numberOfPois), value.lastPoi);
 		  
 		  COBI.app.textToSpeech.write({content : "Have a beer in " + value.lastPoi, language : "en-US"});
-		  M.toast({html: value.lastPoi, displayLength: 5000, classes: "rounded"})
+		  presentSnackbar(value.lastPoi);
+		  //var toast = value.lastPoi;
+		  //M.toast({html: toast, displayLength: 5000, classes: "rounded"});
       }
   });
 }
@@ -64,6 +66,14 @@ function updateGridItem(definition, value) {
    // update_crystal(group, definitions);
 
   definition.value = value;
+}
+
+function presentSnackbar(poi) {
+    var x = document.getElementById("snackbar");
+	x.innerHTML = poi + " visited";
+    
+	x.className = "show";
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
 }
 
 $(window).on('load', function(e) {
