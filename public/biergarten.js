@@ -45,20 +45,54 @@ var makeBiergarten = function (pwd) {
         for (var i = 0; i < result.TotalResults; i++) {
             var gastro = result.Items[i];
             console.log(  gastro.Latitude, gastro.Longitude, gastro.Shortname)
-            gastro_list.push( { lat: gastro.Latitude, lon: gastro.Longitude, sn: gastro.Shortname});
+            gastro_list.push( { lat: gastro.Latitude, lon: gastro.Longitude, sn: gastro.Shortname, visited: false});
         }
     }
 
+	function coordinateDistance(cord1, cord2) {
+		// https://www.movable-type.co.uk/scripts/latlong.html
+		var R = 6371e3; // metres
+		var φ1 = cord1.latitude * Math.PI / 180;
+		var φ2 = cord2.latitude* Math.PI / 180;
+		var Δφ = (cord2.latitude-cord1.latitude) * Math.PI / 180;
+		var Δλ = (cord2.longitude-cord1.longitude) * Math.PI / 180;
 
+		var a = Math.sin(Δφ/2) * Math.sin(Δφ/2) +
+			Math.cos(φ1) * Math.cos(φ2) *
+			Math.sin(Δλ/2) * Math.sin(Δλ/2);
+		var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+
+		var d = R * c;
+
+		return d;
+}
+	var numberOfPois = 0;
+    var my_callback;
+	
     var thus = {
         init: function (lat, lon, rad) {
             get_token(USER_ID, PWD, store_biergarten_list( lat, lon, rad))
         },
+		
+		subscribe: function(callback) {
+            my_callback = callback;
+        },
+
+        unsubscribe: function(callback) {
+            my_callback = undefined;
+        },
+		
         add_position: function( lat, lon) {
             for (var i = 0; i < gastro_list.length; i++) {
                 var d = coordinateDistance( { 'latitude': lat, 'longitude' : lon},
                                     { 'latitude': gastro_list[i].lat, 'longitude' : gastro_list[i].lon })
-                console.log( "DIST" + d);
+				console.log( "DIST" + d);
+				
+				if (d < 10 && gastro_list.visited === false)
+				{
+					numberOfPois += 1;
+					gastro_list[i].visited = true;
+				}				
             }
         }
 
