@@ -9,7 +9,7 @@ var mouseXOnMouseDown = 0;
 
 var crystal_width ;
 var crystal_height;
-
+var crystal_animation_speedfactor = 1.0;
 
 
 function crystal_init() {
@@ -28,6 +28,9 @@ function crystal_init() {
     scene.add(camera);
 
 
+    COBI.rideService.speed.subscribe(function(value) {
+        crystal_animation_speedfactor = value >= 10 ? 0 : (1+Math.sin(Math.PI/2+Math.PI*value/(10)))/2;
+    })
 
     var light = new THREE.PointLight( 0xffffff, 3, 700 );
 
@@ -108,10 +111,9 @@ function onWindowResize() {
 }
 
 function crystal_animate() {
-    targetRotation = 0.02;
     requestAnimationFrame(crystal_animate);
 
-    group.rotation.y += targetRotation ;
-    group.rotation.z += 0.005;
+    group.rotation.y += crystal_animation_speedfactor*0.02;
+    group.rotation.z += crystal_animation_speedfactor*0.005;
     renderer.render(scene, camera);
 }
