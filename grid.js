@@ -28,7 +28,7 @@ function subscribeGridItem(definition) {
       } else {
           updatePoiItem(definition, formatter(value.numberOfPois), value.lastPoi);
 
-		  COBI.app.textToSpeech.write({content : "Have a beer in " + value.lastPoi, language : "en-US"});
+		  COBI.app.textToSpeech.write({content : "Grab a 🍺 in " + value.lastPoi, language : "en-US"});
 		  presentSnackbar(value.lastPoi);
 		  //var toast = value.lastPoi;
 		  //M.toast({html: toast, displayLength: 5000, classes: "rounded"});
@@ -72,10 +72,10 @@ function updateGridItem(definition, value) {
 
 function presentSnackbar(poi) {
     var x = document.getElementById("snackbar");
-	x.innerHTML = poi + " visited";
+	x.innerHTML = "Grab a 🍺 in " + poi;
 
 	x.className = "show";
-    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 4000);
 }
 
 $(window).on('load', function(e) {
