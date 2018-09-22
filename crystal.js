@@ -65,7 +65,7 @@ function crystal_init() {
             bevelThickness: (Math.random() * 10) + 25 //length of top
         };
 
-        colors = [ 0xfa4b69, 0xc8f26d, 0xfacf47, 0x00c8e6 ];
+        colors = [ 0xfa4b69, 0xbaf241, 0xfacf47, 0x00c8e6 ];
 
         addShape(
             hexShape,
