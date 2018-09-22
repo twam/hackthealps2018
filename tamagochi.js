@@ -7,19 +7,19 @@ var make_tamagochi = function () {
 	function init() {
 	  COBI.tourService.ridingDistance.subscribe(function(value) {
 	    state['distance'] = value;
-		console.log(state['distance']);
+		console.log("Distance " + state['distance']);
 	  })
 	  COBI.tourService.ridingDuration.subscribe(function(value) {
 	    state['duration'] = value;
-		console.log(state['duration']);
+		console.log("Duration " + state['duration']);
 	  })
 	  COBI.tourService.ascent.subscribe(function(value) {
 	    state['ascent'] = value;
-		console.log(state['ascent']);
+		console.log("Ascent " + state['ascent']);
 	  })
 	  biergarten.subscribe(function(value) {
 		state['numberOfPois'] = value;
-		console.log(state['numberOfPois']);
+		console.log("numberOfPois " + state['numberOfPois']);
 	  })
 	}	
 	init();

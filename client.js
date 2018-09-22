@@ -8,6 +8,11 @@ COBI.devkit.overrideThumbControllerMapping.write(true);
 // Disable Reordering in Experience
 var inEditMode = (COBI.parameters.state() == COBI.state.edit);
 
+// React on theme changes
+COBI.app.theme.subscribe(function (value) {
+  $('.unit').css('color', 'rgb(' + value.baseColor.red + ',' + value.baseColor.green + ',' + value.baseColor.blue + ')');
+});
+
 // Allow user to zoom in and out
 COBI.hub.externalInterfaceAction.subscribe(function(action) {
   // Listen to inputs and update zoom index variable
@@ -22,6 +27,13 @@ COBI.hub.externalInterfaceAction.subscribe(function(action) {
 // Display detailled item names if touch interaction is allowed
 COBI.app.touchInteractionEnabled.subscribe(function(touchInteractionEnabled) {
 //  updateInterfaceVisibility(touchInteractionEnabled);
+  if (touchInteractionEnabled) {
+    $('#maingrid').removeClass('grid2');
+    $('#maingrid').addClass('grid1');
+  } else {
+    $('#maingrid').removeClass('grid1');
+    $('#maingrid').addClass('grid2');
+  }
 });
 
 // Define id, name, events, formatting functions, units and default value for each item
@@ -39,7 +51,7 @@ var definitions = [
       value: 0,
   },
   {
-    id: 'data-field2',
+    id: 'data-field5',
     name: 'Avg Speed',
     subscribe: COBI.tourService.averageSpeed.subscribe,
     unsubscribe: COBI.tourService.averageSpeed.unsubscribe,
@@ -51,7 +63,7 @@ var definitions = [
       value : 0.
   },
   {
-    id: 'data-field3',
+    id: 'data-field6',
     name: 'User Power',
     subscribe: COBI.rideService.userPower.subscribe,
     unsubscribe: COBI.rideService.userPower.unsubscribe,
@@ -65,7 +77,7 @@ var definitions = [
       value : 0,
   },
   {
-    id: 'data-field4',
+    id: 'data-field7',
     name: 'Cadence',
     subscribe: COBI.rideService.cadence.subscribe,
     unsubscribe: COBI.rideService.cadence.unsubscribe,

@@ -41,12 +41,15 @@ var makeBiergarten = function (pwd) {
         }
     }
 
-    function consume_list( result) {
+    function consume_list(result) {
         for (var i = 0; i < result.TotalResults; i++) {
             var gastro = result.Items[i];
-            console.log(  gastro.Latitude, gastro.Longitude, gastro.Shortname)
-            gastro_list.push( { lat: gastro.Latitude, lon: gastro.Longitude, sn: gastro.Shortname, visited: false});
-        }
+			if (gastro !== undefined)
+			{
+				console.log(gastro.Latitude, gastro.Longitude, gastro.Shortname)
+				gastro_list.push( { lat: gastro.Latitude, lon: gastro.Longitude, sn: gastro.Shortname, visited: false });
+			}
+		}
     }
 
 	function coordinateDistance(cord1, cord2) {
@@ -88,7 +91,7 @@ var makeBiergarten = function (pwd) {
                                     { 'latitude': gastro_list[i].lat, 'longitude' : gastro_list[i].lon })
 				console.log( "DIST" + d);
 				
-				if (d < 10 && gastro_list.visited === false)
+				if (d < 100 && gastro_list.visited === false)
 				{
 					numberOfPois += 1;
 					gastro_list[i].visited = true;

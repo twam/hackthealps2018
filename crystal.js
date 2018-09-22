@@ -10,8 +10,6 @@ var mouseXOnMouseDown = 0;
 var crystal_width;
 var crystal_height;
 
-var crystal_params = [];
-
 var hexShape;
 
 function crystal_init(definitions) {
@@ -28,27 +26,34 @@ function crystal_init(definitions) {
     hexShape.lineTo(-0.4, 0.5);
     hexShape.lineTo(0, 0.8);
 
-    crystal_width = container.offsetWidth;
-    crystal_height = window.innerHeight;
+    crystal_width = $('#tamagochi').width();
+    crystal_height = $('#tamagochi').height();
 
-    camera = new THREE.PerspectiveCamera(50, crystal_width / crystal_height, 1, 1000);
-    camera.position.z = 750;
+    camera = new THREE.PerspectiveCamera(60, crystal_width / crystal_height, 1, 1000);
+    camera.position.z = 600;
     scene.add(camera);
 
-    var light = new THREE.PointLight(0xffffff, 0.8);
+
+
+    var light = new THREE.PointLight( 0xffffff, 3, 700 );
+
     camera.add(light);
 
     group = new THREE.Group();
-    group.position.y = 50;
+    group.position.y = 0;
+    scene.add(group);
+
+    function addShape(shape, extrudeSettings, color, x, y, z, rx, ry, rz, s) {
+        var geometry = new THREE.ExtrudeGeometry(shape, extrudeSettings);
 
     init_crystal_params(definitions);
 
-    update_crystal(group, definitions)
+    update_crystal(group, definitions);
 
     renderer = new THREE.WebGLRenderer({
         antialias: true
     });
-    renderer.setClearColor(0x12d2d3);
+    renderer.setClearColor(0x25252d);
     renderer.setPixelRatio(window.devicePixelRatio);
 
     renderer.setSize(crystal_width, crystal_height);
@@ -124,8 +129,8 @@ function scaleit(definition) {
 
 function onWindowResize() {
 
-    crystal_width = container.offsetWidth;
-    crystal_height = window.innerHeight;
+    crystal_width = $('#tamagochi').width();
+    crystal_height = $('#tamagochi').height();
 
     camera.aspect = crystal_width / crystal_height;
     camera.updateProjectionMatrix();
@@ -134,7 +139,7 @@ function onWindowResize() {
 }
 
 function crystal_animate() {
-    targetRotation = 0.03;
+    targetRotation = 0.02;
     requestAnimationFrame(crystal_animate);
 
     group.rotation.y += targetRotation;
