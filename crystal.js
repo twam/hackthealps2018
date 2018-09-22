@@ -73,6 +73,10 @@ function update_single_crystal_param(definition) {
     var s = scaleit(definition);
     var new_number = Math.floor(s)/5;
 
+    for (var j = 0; j < definition.crystal_params.length; j++) {
+        definition.crystal_params[j].s = s;
+    }
+
     for (var j = definition.crystal_params.length; j < new_number; j++) {
         param = {
             color: definition.color,
@@ -85,6 +89,7 @@ function update_single_crystal_param(definition) {
         }
         definition.crystal_params.push(param)
     }
+
 }
 
 function init_crystal_params(definitions) {
@@ -110,10 +115,9 @@ function update_crystal(group, definitions) {
                 var spike = create_spike(definitions[i].crystal_params[j]);
                 group.add(spike);
                 definitions[i].crystal_params[j].spike = spike;
-            } else {
-                definitions[i].crystal_params[j].spike.scale.z = definitions[i].crystal_params[j].s/100;
-                // modify spike
             }
+
+            definitions[i].crystal_params[j].spike.scale.z = definitions[i].crystal_params[j].s/100;
         }
     }
 }

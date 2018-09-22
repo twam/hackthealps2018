@@ -28,7 +28,7 @@ var definitions = [
         defaultValue: '-',
         color: 0xe8596c,
         value: 0,
-        xscale: 10,
+        xscale: 100,
         yoff: 25,
     },
     {
@@ -70,7 +70,7 @@ var definitions = [
         unit: 'km',
         defaultValue: '-',
         color: 0xd1ef7f,
-        xscale: 0.1,
+        xscale: 25,
         yoff: 25,
         value: 0
     },
@@ -93,7 +93,7 @@ var definitions = [
         unit: 'm',
         defaultValue: '-',
         color: 0x58c6e2,
-        xscale: 1,
+        xscale: 50,
         yoff: 25,
         value: 0
     },
@@ -116,7 +116,7 @@ var definitions = [
         unit: 'min',
         defaultValue: '-',
         color: 0xf4cf61,
-        xscale: 0.1,
+        xscale: 25,
         yoff: 25,
         value: 0
     },
