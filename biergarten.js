@@ -28,7 +28,9 @@ var makeBiergarten = function (pwd) {
 						callback();
 					}
 				});
-		}
+		} else {
+            callback();
+        }
     }
 
     function set_bearer_token(token) {
@@ -98,7 +100,8 @@ var makeBiergarten = function (pwd) {
 				{
 					numberOfPois += 1;
 					gastro_list[i].visited = true;
-					my_callback(numberOfPois);
+					var value = { numberOfPois : numberOfPois, lastPoi : gastro_list[i].sn};
+					my_callback(value);
 				}				
             }
         }

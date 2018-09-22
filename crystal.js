@@ -103,7 +103,6 @@ function update_crystal(group, definitions) {
     }
 
     for (var i = 0; i < definitions.length; i++) {
-        console.log("HIER:", definitions[i].name, definitions[i].value);
         update_single_crystal_param(definitions[i]);
         for (var j = 0; j < definitions[i].crystal_params.length; j++) {
             var spike = create_spike( definitions[i].crystal_params[j]);
