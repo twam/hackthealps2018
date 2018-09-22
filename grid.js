@@ -93,7 +93,7 @@ function initStats() {
 
 $(window).on('load', function(e) {
   // delete old items
-  localStorage.removeItem("lastBiergartenSet");
+//  localStorage.removeItem("lastBiergartenSet");
 
   hookDefinitions();
 

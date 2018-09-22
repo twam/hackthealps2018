@@ -34,6 +34,7 @@ COBI.app.touchInteractionEnabled.subscribe(function(touchInteractionEnabled) {
     $('#maingrid').removeClass('grid1');
     $('#maingrid').addClass('grid2');
   }
+  onWindowResize();
 });
 
 // Define id, name, events, formatting functions, units and default value for each item
