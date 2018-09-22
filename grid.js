@@ -3,6 +3,9 @@
 var touchInteractionEnabled = false;
 var isPortrait = window.matchMedia('(orientation: portrait)').matches;
 
+var biergarten;
+var tamagochi;
+
 // Define getter and setters for saving and retrieving local storage variables or default variables
 
 if (inEditMode && isPortrait) {
@@ -99,10 +102,10 @@ $(window).on('load', function(e) {
   v = localStorage.getItem("lastBiergartenSet")*/
 
   initStats();
-
-  var biergarten = makeBiergarten('$h4cKth34lpS');
+  
+  biergarten = makeBiergarten('$h4cKth34lpS');
+  tamagochi = make_tamagochi();
 
   crystal_init();
   crystal_animate();
-
 });
