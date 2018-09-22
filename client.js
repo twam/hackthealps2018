@@ -144,17 +144,4 @@ var definitions = [
         yoff: 10,
         value: 0
     },
-    {
-        id: 'tamagochi',
-        name: 'tamagochi',
-        subscribe: tamagochi.subscribe,
-        unsubscribe: tamagochi.unsubscribe,
-        defaultValue: '-',
-        unit: 'test unit',
-        type: 'tamagochi',
-        xscale: 10,
-        color: 0xff3333,
-        yoff: 10,
-        value: 0
-    }
 ];

@@ -155,11 +155,12 @@ function onWindowResize() {
 
 var animation;
 
+/*
 window.setInterval(function() {
-    cancelAnimationFrame()
+    cancelAnimationFrame( animation);
     update_crystal(group, definitions);
     crystal_animate();
-}, 1000);
+}, 1000);*/
 
 
 function crystal_animate() {
