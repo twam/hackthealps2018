@@ -18,9 +18,13 @@ COBI.app.touchInteractionEnabled.subscribe(function(touchInteractionEnabled) {
 //  updateInterfaceVisibility(touchInteractionEnabled);
   if (touchInteractionEnabled) {
     $('#maingrid').removeClass('grid2');
-    $('#maingrid').addClass('grid1');
+    if (inEditMode) {
+      $('#maingrid').addClass('grid3');
+    } else {
+      $('#maingrid').addClass('grid1');
+    }
   } else {
-    $('#maingrid').removeClass('grid1');
+    $('#maingrid').removeClass('grid1 grid3');
     $('#maingrid').addClass('grid2');
   }
 });
