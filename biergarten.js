@@ -34,7 +34,7 @@ var makeBiergarten = function (pwd) {
 
     function store_biergarten_list( lat, lon, rad)  {
         return function() {
-            $.ajax(BIERGARTEN_URI+"&categorycodefilter=65536&latitude="+ lat + "&longitude=" + lon + "&radius=" + rad, {
+            $.ajax(BIERGARTEN_URI+"&pagesize=1024&categorycodefilter=524297&latitude="+ lat + "&longitude=" + lon + "&radius=" + rad, {
                 headers: { "Authorization": "Bearer " + BEARER_TOKEN},
                 success: consume_list,
             });

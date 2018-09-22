@@ -100,13 +100,12 @@ $(window).on('load', function(e) {
   // delete old items
  /* localStorage.removeItem("lastBiergartenSet");
   v = localStorage.getItem("lastBiergartenSet")*/
-
-  initStats();
   
   biergarten = makeBiergarten('$h4cKth34lpS');
-  biergarten.init();
   tamagochi = make_tamagochi();
-
+  
+  initStats();
+  
   crystal_init();
   crystal_animate();
 });
