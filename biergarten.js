@@ -18,6 +18,7 @@ var makeBiergarten = function (pwd) {
 
 		BEARER_TOKEN = localStorage.getItem("bearerToken");
 		if (BEARER_TOKEN === null)
+		{
 			$.ajax(
 				LOGIN_URI, {
 					method: 'POST',
@@ -101,8 +102,6 @@ var makeBiergarten = function (pwd) {
 				}				
             }
         }
-
-
     };
     return thus;
 }

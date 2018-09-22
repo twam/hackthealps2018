@@ -3,8 +3,6 @@
 var touchInteractionEnabled = false;
 var isPortrait = window.matchMedia('(orientation: portrait)').matches;
 
-var tamagochi;
-
 // Define getter and setters for saving and retrieving local storage variables or default variables
 
 if (inEditMode && isPortrait) {
@@ -20,21 +18,11 @@ if (!inEditMode) {
 function subscribeGridItem(definition) {
   var formatter = definition.formatter;
   var type = definition.type;
-
-  if (type === 'value') {
-    definition.unsubscribe();
-    definition.subscribe(function(value) {
-      updateGridItem(definition, formatter(value));
-    });
-  } else if (type === 'tamagochi') {
-      definition.unsubscribe();
-      definition.subscribe(function(value) {
-        updateTamagochi(definition, value.time );
-      });
-      setInterval( function() {
-          tamagochi.update( "time", Date.now())
-      }, 3000);
-  }
+  
+  definition.unsubscribe();
+  definition.subscribe(function(value) {
+	updateGridItem(definition, formatter(value));
+  });
 }
 
 function updatePoi( definition, value) {
@@ -68,30 +56,6 @@ function updateGridItem(definition, value) {
    // update_crystal(group, definitions);
 
 }
-
-/*
-function initStats() {
-  COBI.rideService.speed.subscribe(function(value, timestamp) {
-    maxSpeed = localStorage.getItem("maxSpeed");
-    if (value > maxSpeed) {
-      maxSpeed = value;
-      localStorage.setItem("maxSpeed", maxSpeed);
-      // console.log("maxspeed:" + value);
-    }
-  });
-
-  COBI.mobile.location.subscribe(function(value, timestamp) {
-      if (localStorage.getItem("lastBiergartenSet") === null) {
-
-         // biergarten.init(value.coordinate.latitude, value.coordinate.longitude, 10000);
-          biergarten.init(46.776221,11.948397,10000);
-
-          localStorage.setItem("lastBiergartenSet", true);
-      }
-      biergarten.add_position(value.coordinate.latitude, value.coordinate.longitude)
-  });
-}
-*/
 
 $(window).on('load', function(e) {
   // delete old items
