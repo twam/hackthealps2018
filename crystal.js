@@ -14,10 +14,6 @@ function crystal_init() {
     container = document.createElement('div');
     $('#target').append(container);
 
-    /*+
-        '' +
-        '.appendChild(container);
-*/
     scene = new THREE.Scene();
 
     camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 1, 1000);
@@ -79,7 +75,7 @@ function crystal_init() {
     renderer = new THREE.WebGLRenderer({
         antialias: true
     });
-    renderer.setClearColor(0x000000);
+    renderer.setClearColor(0x2d2d36);
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(window.innerWidth, window.innerHeight);
     container.appendChild(renderer.domElement);
