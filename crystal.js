@@ -19,7 +19,7 @@ function crystal_init() {
     scene = new THREE.Scene();
 
 
-    crystal_width = container.offsetWidth;
+    crystal_width = $('#tamagochi').width();
     crystal_height = $('#tamagochi').height();
 
 
@@ -98,7 +98,7 @@ function crystal_init() {
 
 function onWindowResize() {
 
-    crystal_width = container.offsetWidth;
+    crystal_width = $('#tamagochi').width();
     crystal_height = $('#tamagochi').height();
 
     camera.aspect = crystal_width/ crystal_height;
