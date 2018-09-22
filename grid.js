@@ -104,6 +104,7 @@ $(window).on('load', function(e) {
   initStats();
   
   biergarten = makeBiergarten('$h4cKth34lpS');
+  biergarten.init();
   tamagochi = make_tamagochi();
 
   crystal_init();

@@ -8,6 +8,11 @@ COBI.devkit.overrideThumbControllerMapping.write(true);
 // Disable Reordering in Experience
 var inEditMode = (COBI.parameters.state() == COBI.state.edit);
 
+// React on theme changes
+COBI.app.theme.subscribe(function (value) {
+  $('.unit').css('color', 'rgb(' + value.baseColor.red + ',' + value.baseColor.green + ',' + value.baseColor.blue + ')');
+});
+
 // Allow user to zoom in and out
 COBI.hub.externalInterfaceAction.subscribe(function(action) {
   // Listen to inputs and update zoom index variable
@@ -22,6 +27,13 @@ COBI.hub.externalInterfaceAction.subscribe(function(action) {
 // Display detailled item names if touch interaction is allowed
 COBI.app.touchInteractionEnabled.subscribe(function(touchInteractionEnabled) {
 //  updateInterfaceVisibility(touchInteractionEnabled);
+  if (touchInteractionEnabled) {
+    $('#maingrid').removeClass('grid2');
+    $('#maingrid').addClass('grid1');
+  } else {
+    $('#maingrid').removeClass('grid1');
+    $('#maingrid').addClass('grid2');
+  }
 });
 
 // Define id, name, events, formatting functions, units and default value for each item
