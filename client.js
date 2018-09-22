@@ -47,7 +47,7 @@ var definitions = [
     unit: 'km/h',
     defaultValue: '-',
     type: 'value',
-    color: 0xff3333,
+    color: 0xe8596c,
     value: 0,
   },
   {
@@ -71,7 +71,7 @@ var definitions = [
     unit: 'watts',
     defaultValue: '-',
     type: 'value',
-    color: 0x3333ff,
+    color: 0xd1ef7f,
     xscale: 10,
     yoff: 10,
     value : 0,
@@ -85,7 +85,6 @@ var definitions = [
     unit: 'rpm',
     defaultValue: '-',
     type: 'value',
-    color: 0xffff33,
     xscale: 10,
     yoff: 10,
     value : 0,
@@ -99,6 +98,7 @@ var definitions = [
     unit: 'km',
     defaultValue: '-',
     type: 'value',
+    color: 0xd1ef7f,
     xscale: 10,
     yoff: 10,
   },
@@ -123,6 +123,7 @@ var definitions = [
     unit: 'm',
     defaultValue: '-',
     type: 'value',
+    color: 0x58c6e2,
     xscale: 10,
     yoff: 10,
   },
@@ -135,6 +136,7 @@ var definitions = [
     unit: 'bpm',
     defaultValue: '-',
     type: 'value',
+    color: 0xffffff,
   },
   {
     id: 'data-field3',
@@ -145,6 +147,7 @@ var definitions = [
     unit: 'min',
     defaultValue: '-',
     type: 'value',
+    color: 0xf4cf61,
   },
   {
     id: 'tamagochi',
@@ -153,6 +156,6 @@ var definitions = [
     unsubscribe: tamagochi.unsubscribe,
     defaultValue: '-',
     unit: 'test unit',
-    type: 'tamagochi'
+    type: 'tamagochi',
   }
 ];
