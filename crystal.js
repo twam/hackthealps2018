@@ -35,7 +35,7 @@ function crystal_init() {
     function addShape(shape, extrudeSettings, color, x, y, z, rx, ry, rz, s) {
         var geometry = new THREE.ExtrudeGeometry(shape, extrudeSettings);
 
-        var meshMaterial = new THREE.MeshNormalMaterial();
+        var meshMaterial = new THREE.MeshStandardMaterial({ color: color});
         var mesh = new THREE.Mesh(geometry, meshMaterial);
 
         mesh.position.set(x, y, z);
@@ -52,21 +52,23 @@ function crystal_init() {
     hexShape.lineTo(-0.4, 0.5);
     hexShape.lineTo(0, 0.8);
 
-    var numberOfCrystals = 100;
+    var numberOfCrystals = 50;
     for (i = 0; i < numberOfCrystals; i++) {
         var extrudeSettings = {
-            amount: Math.random() * 200,
-            bevelEnabled: true,
+            amount: Math.random() * 200,  // Length
+            bevelEnabled: true, // Top
             bevelSegments: 1,
             steps: 1,
-            bevelSize: (Math.random() * 10) + 15,
-            bevelThickness: (Math.random() * 10) + 25
+            bevelSize: (Math.random() * 10) + 15, // diameter
+            bevelThickness: (Math.random() * 10) + 25 //length of top
         };
+
+        colors = [ 0xff3333, 0x33ff33, 0x3333ff, 0xffff33 ];
 
         addShape(
             hexShape,
             extrudeSettings,
-            0xff3333, // color
+            colors[ Math.floor(Math.random() * 4)],
             0, // x pos
             0, // y pos
             0, // z pos
@@ -101,9 +103,10 @@ function onWindowResize() {
 }
 
 function crystal_animate() {
-    targetRotation = 0.1;
+    targetRotation = 0.03;
     requestAnimationFrame(crystal_animate);
 
     group.rotation.y += targetRotation ;
+    group.rotation.z += 0.005;
     renderer.render(scene, camera);
 }
