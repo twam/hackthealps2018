@@ -43,6 +43,7 @@ function subscribeGritItem(definition) {
 
 function updateTamagochi( definition, value) {
    $('#' + definition.id + '_value').html(`${value}`);
+   definition.value = value;
 }
 
 function linkDefinition( definition) {
@@ -106,6 +107,6 @@ $(window).on('load', function(e) {
   biergarten = makeBiergarten('$h4cKth34lpS');
   tamagochi = make_tamagochi();
 
-  crystal_init();
+  crystal_init(definitions);
   crystal_animate();
 });
