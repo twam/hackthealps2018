@@ -8,6 +8,12 @@ html {
   overflow: hidden;
 }
 
+p{
+  font-family: sans-serif;
+  font: 100 1.1rem/10px 'UniSansRegular', Heveltica, Arial, san-serif; color: #00c8e6;
+}
+
+
 .face{
   position: relative;
   background-color: #2d2d36;
@@ -39,13 +45,7 @@ html {
   text-transform: uppercase;
   font: 100 1rem/10px 'UniSansRegular', Heveltica, Arial, san-serif; color: #ABABAB;
   letter-spacing: .07rem;
-  margin: 2rem 1rem .5rem 1.5rem;
-}
-
-
-p{
-  font-family: sans-serif;
-  font: 100 1.1rem/10px 'UniSansRegular', Heveltica, Arial, san-serif; color: #00c8e6;
+  margin: 2rem .5rem .5rem 1.5rem;
 }
 
 .grid1 {
@@ -60,7 +60,7 @@ p{
 .grid2 {
   display: grid; grid-gap: 1rem;
   grid-template-rows: 44vh 44vh;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 2fr 2fr 2fr 2fr;
   grid-template-areas:
     '🍻 💩 🚀 🎇'
     '🍟 ⛱ ☄️ 🥁';
@@ -73,7 +73,6 @@ p{
 #data-field2 {
   grid-area: 💩;
   border-bottom: 4px solid #c8f26d;
-
 }
 #data-field3 {
   grid-area: 🍟;
@@ -87,7 +86,6 @@ p{
   grid-area: 🥁;
   border-bottom: 4px solid #FFF;
 }
-
 #data-field6 {
   grid-area: 🚀;
   border-bottom: 4px solid #FFF;
@@ -97,11 +95,22 @@ p{
   border-bottom: 4px solid #FFF;
 }
 
-.grid1 #data-field5, .grid1 #data-field6 , .grid1 #data-field7 {
+.grid1 #data-field5,
+.grid1 #data-field6,
+.grid1 #data-field7 {
   display: none;
 }
 
+.grid2 #data-field5,
+.grid2 #data-field6,
+.grid2 #data-field7 {
+  display: initial;
+}
+
 #tamagochi {
-  display: block;
   grid-area: 🎇;
+}
+
+.grid2 #tamagochi {
+  max-width: 21.5vw;
 }
