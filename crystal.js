@@ -84,7 +84,7 @@ function crystal_init() {
     renderer = new THREE.WebGLRenderer({
         antialias: true
     });
-    renderer.setClearColor(0x2d2d36);
+    renderer.setClearColor(0x25252d);
     renderer.setPixelRatio(window.devicePixelRatio);
 
     renderer.setSize(crystal_width, crystal_height);
