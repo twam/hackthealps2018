@@ -13,6 +13,22 @@ COBI.app.theme.subscribe(function (value) {
     $('.unit').css('color', 'rgb(' + value.baseColor.red + ',' + value.baseColor.green + ',' + value.baseColor.blue + ')');
 });
 
+// Display detailled item names if touch interaction is allowed
+COBI.app.touchInteractionEnabled.subscribe(function(touchInteractionEnabled) {
+//  updateInterfaceVisibility(touchInteractionEnabled);
+  if (touchInteractionEnabled) {
+    $('#maingrid').removeClass('grid2');
+    if (inEditMode) {
+      $('#maingrid').addClass('grid3');
+    } else {
+      $('#maingrid').addClass('grid1');
+    }
+  } else {
+    $('#maingrid').removeClass('grid1 grid3');
+    $('#maingrid').addClass('grid2');
+  }
+});
+
 biergarten = makeBiergarten('$h4cKth34lpS');
 biergarten.init(46.776221, 11.948397, 10000);
 
@@ -24,7 +40,7 @@ var definitions = [
         subscribe: biergarten.subscribe,
         unsubscribe: biergarten.unsubscribe,
         formatter: formatInt,
-        unit: 'times',
+        unit: '',
         defaultValue: '-',
         color: 0xe8596c,
         value: 0,
