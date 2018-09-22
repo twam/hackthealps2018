@@ -95,6 +95,7 @@ $(window).on('load', function(e) {
   // delete old items
  /* localStorage.removeItem("lastBiergartenSet");
   v = localStorage.getItem("lastBiergartenSet")*/
+  hookDefinitions();
 
   biergarten = makeBiergarten('$h4cKth34lpS');
   tamagochi = make_tamagochi();
