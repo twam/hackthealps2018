@@ -145,7 +145,7 @@ function subscribeGridItemWith(definition) {
   } else if (type === 'tamagochi') {
       definition.unsubscribe();
       definition.subscribe(function(value) {
-        updateTamagochi( definition, value.time );
+        updateTamagochi(definition, value.time );
       });
       setInterval( function() {
           tamagochi.update( "time", Date.now())

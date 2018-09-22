@@ -25,6 +25,7 @@ COBI.app.touchInteractionEnabled.subscribe(function(touchInteractionEnabled) {
 });
 
 var tamagochi = make_tamagochi();
+tamagochi.init();
 
 // Define id, name, events, formatting functions, units and default value for each item
 var definitions = [
