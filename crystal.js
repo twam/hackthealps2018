@@ -10,6 +10,8 @@ var mouseXOnMouseDown = 0;
 var crystal_width ;
 var crystal_height;
 
+
+
 function crystal_init() {
     container = document.createElement('div');
     $('#tamagochi').append(container);
@@ -18,7 +20,7 @@ function crystal_init() {
 
 
     crystal_width = container.offsetWidth;
-    crystal_height = window.innerHeight;
+    crystal_height = $('#tamagochi').height();
 
 
     camera = new THREE.PerspectiveCamera(50, crystal_width / crystal_height, 1, 1000);
@@ -63,7 +65,7 @@ function crystal_init() {
             bevelThickness: (Math.random() * 10) + 25 //length of top
         };
 
-        colors = [ 0xff3333, 0x33ff33, 0x3333ff, 0xffff33 ];
+        colors = [ 0xfa4b69, 0xc8f26d, 0xfacf47, 0x00c8e6 ];
 
         addShape(
             hexShape,
@@ -82,7 +84,7 @@ function crystal_init() {
     renderer = new THREE.WebGLRenderer({
         antialias: true
     });
-    renderer.setClearColor(0x12d2d3);
+    renderer.setClearColor(0x25252d);
     renderer.setPixelRatio(window.devicePixelRatio);
 
     renderer.setSize(crystal_width, crystal_height);
@@ -94,7 +96,7 @@ function crystal_init() {
 function onWindowResize() {
 
     crystal_width = container.offsetWidth;
-    crystal_height = window.innerHeight;
+    crystal_height = $('#tamagochi').height();
 
     camera.aspect = crystal_width/ crystal_height;
     camera.updateProjectionMatrix();
