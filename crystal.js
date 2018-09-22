@@ -19,19 +19,22 @@ function crystal_init() {
     scene = new THREE.Scene();
 
 
-    crystal_width = container.offsetWidth;
+    crystal_width = $('#tamagochi').width();
     crystal_height = $('#tamagochi').height();
 
 
-    camera = new THREE.PerspectiveCamera(50, crystal_width / crystal_height, 1, 1000);
-    camera.position.z = 750;
+    camera = new THREE.PerspectiveCamera(60, crystal_width / crystal_height, 1, 1000);
+    camera.position.z = 600;
     scene.add(camera);
 
-    var light = new THREE.PointLight(0xffffff, 0.8);
+
+
+    var light = new THREE.PointLight( 0xffffff, 3, 700 );
+
     camera.add(light);
 
     group = new THREE.Group();
-    group.position.y = 50;
+    group.position.y = 0;
     scene.add(group);
 
     function addShape(shape, extrudeSettings, color, x, y, z, rx, ry, rz, s) {
@@ -54,18 +57,18 @@ function crystal_init() {
     hexShape.lineTo(-0.4, 0.5);
     hexShape.lineTo(0, 0.8);
 
-    var numberOfCrystals = 50;
+    var numberOfCrystals = 150;
     for (i = 0; i < numberOfCrystals; i++) {
         var extrudeSettings = {
-            amount: Math.random() * 200,  // Length
+            amount: Math.random() * 250,  // Length
             bevelEnabled: true, // Top
             bevelSegments: 1,
             steps: 1,
-            bevelSize: (Math.random() * 10) + 15, // diameter
-            bevelThickness: (Math.random() * 10) + 25 //length of top
+            bevelSize: (Math.random() * 5) + 15, // diameter
+            bevelThickness: (Math.random() * 1) + 25 //length of top
         };
 
-        colors = [ 0xfa4b69, 0xc8f26d, 0xfacf47, 0x00c8e6 ];
+        colors = [ 0xfa4b69, 0xbaf241, 0xfacf47, 0x00c8e6 ];
 
         addShape(
             hexShape,
@@ -95,7 +98,7 @@ function crystal_init() {
 
 function onWindowResize() {
 
-    crystal_width = container.offsetWidth;
+    crystal_width = $('#tamagochi').width();
     crystal_height = $('#tamagochi').height();
 
     camera.aspect = crystal_width/ crystal_height;
@@ -105,7 +108,7 @@ function onWindowResize() {
 }
 
 function crystal_animate() {
-    targetRotation = 0.03;
+    targetRotation = 0.02;
     requestAnimationFrame(crystal_animate);
 
     group.rotation.y += targetRotation ;

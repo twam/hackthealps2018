@@ -13,11 +13,9 @@ if (inEditMode && isPortrait) {
   // we may need it later
 }
 
-
 if (!inEditMode) {
   // we may need it later
 }
-
 
 // Hook onto event that triggers on value change
 function subscribeGritItem(definition) {
@@ -40,7 +38,6 @@ function subscribeGritItem(definition) {
   }
 }
 
-
 function updateTamagochi( definition, value) {
    $('#' + definition.id + '_value').html(`${value}`);
 }
@@ -58,14 +55,11 @@ function hookDefinitions() {
     linkDefinition(definitions[4]);
     linkDefinition(definitions[8]);
     linkDefinition(definitions[6]);
+    linkDefinition(definitions[1]);
+    linkDefinition(definitions[2]);
+    linkDefinition(definitions[3]);
 
     var container = $('#tamagochi')
-/*    renderer = new THREE.WebGLRenderer( { canvas: container } );
-    renderer.setSize( 200, 200 );
-//    renderer.setSize( container.style.width, container.style.height );
-
-    // document.addEventListener( 'mousemove', onDocumentMouseMove, false );
-    container.appendChild( renderer.domElement );*/
 }
 
 // Update dom element with values for item
@@ -96,11 +90,11 @@ function initStats() {
 }
 
 $(window).on('load', function(e) {
-    hookDefinitions();
   // delete old items
  /* localStorage.removeItem("lastBiergartenSet");
   v = localStorage.getItem("lastBiergartenSet")*/
   
+
   biergarten = makeBiergarten('$h4cKth34lpS');
   tamagochi = make_tamagochi();
   

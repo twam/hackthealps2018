@@ -62,8 +62,8 @@ p{
   grid-template-rows: 44vh 44vh;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-areas:
-    '🍻 🍻 💩 🎇'
-    '🍻 🍻 🍟 ⛱';
+    '🍻 💩 🚀 🎇'
+    '🍟 ⛱ ☄️ 🥁';
 }
 
 #data-field1 {
@@ -84,9 +84,36 @@ p{
 }
 #data-field4 {
   grid-area: ⛱;
-  display: block;
   border-bottom: 4px solid #00c8e6;
 }
+#data-field5 {
+  grid-area: 🥁;
+  display: block;
+  border-bottom: 4px solid #FFF;
+}
+
+#data-field6 {
+  grid-area: 🚀;
+  border-bottom: 4px solid #FFF;
+}
+#data-field7 {
+  grid-area: ☄️;
+  border-bottom: 4px solid #FFF;
+}
+
+.grid1 #data-field5 {
+  display: none;
+}
+
+.grid1 #data-field6 {
+  display: none;
+}
+
+.grid1 #data-field7 {
+  display: none;
+}
+
 #tamagochi {
+  display: block;
   grid-area: 🎇;
 }
