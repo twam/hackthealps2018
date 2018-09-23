@@ -7,10 +7,10 @@ OFF THEIR COUCHES.
 
 Uses HTML5 based COBI.bike Devkit SDK https://cobi.bike/devkit
 
-**In [COBI.Bike DevKit Simulator](https://chrome.google.com/webstore/detail/cobibike-devkit-simulator/hpdhkapigojggienmiejhblkhenjdbno)**
+**In the [COBI.Bike DevKit Simulator](https://chrome.google.com/webstore/detail/cobibike-devkit-simulator/hpdhkapigojggienmiejhblkhenjdbno)**
 ![simulator](https://raw.githubusercontent.com/twam/hackthealps2018/master/simulator.gif)
 
-**In App**
+**In the COBI.Bike App**
 ![screen](https://raw.githubusercontent.com/twam/hackthealps2018/master/screen.gif)
 
 **In the Alps**
