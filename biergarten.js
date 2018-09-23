@@ -57,7 +57,6 @@ var makeBiergarten = function (pwd) {
     }
 
     function consume_list(result, status) {
-        alert( status)
         alert( result.TotalResults)
         console.log(status);
         for (var i = 0; i < result.TotalResults; i++) {
