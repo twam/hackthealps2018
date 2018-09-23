@@ -33,7 +33,8 @@ COBI.app.touchInteractionEnabled.subscribe(function(touchInteractionEnabled) {
 });
 
 var biergarten = makeBiergarten('$h4cKth34lpS');
-biergarten.init(46.738814, 11.958118, 3000);
+
+
 
 // Define id, name, events, formatting functions, units and default value for each item
 var definitions = [

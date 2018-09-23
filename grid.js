@@ -79,10 +79,15 @@ function presentSnackbar(poi) {
 }
 
 $(window).on('load', function(e) {
-  // delete old items
+
+   var first_fix = false;
 
    hookDefinitions();
     COBI.mobile.location.subscribe(function(value, timestamp) {
+        if (!first_fix) {
+            biergarten.init(value.coordinate.latitude, value.coordinate.longitude, 10000);
+            first_fix = true;
+        }
         biergarten.add_position(value.coordinate.latitude, value.coordinate.longitude)
     });
 
