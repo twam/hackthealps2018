@@ -1,8 +1,21 @@
-# hackthealps2018
+#  Activity Crystal
+ 
+BUILD SOMETHING
+SIMPLE & FUN THAT
+GETS PEOPLE’S ASSES
+OFF THEIR COUCHES.
 
-Activity Avatar for COBI.bike
 
-Built with https://cobi.bike/devkit
+Uses HTML5 based COBI.bike Devkit SDK https://cobi.bike/devkit
 
-![alt text](https://raw.githubusercontent.com/twam/hackthealps2018/master/IMG_4860.JPG)
+![screen](https://raw.githubusercontent.com/twam/hackthealps2018/master/screen.png)
+
+
+
+![Hack The Alps](https://raw.githubusercontent.com/twam/hackthealps2018/master/IMG_4860.JPG)
+
+
+Inspired by Spinning Ball of Crystal
+https://codepen.io/aglosson/pen/rVyRGm
+
 
