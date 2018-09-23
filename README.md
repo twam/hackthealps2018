@@ -8,7 +8,7 @@ OFF THEIR COUCHES.
 
 Uses HTML5 based COBI.bike Devkit SDK https://cobi.bike/devkit
 
-![screen](https://raw.githubusercontent.com/twam/hackthealps2018/master/screen.png)
+![screen](https://raw.githubusercontent.com/twam/hackthealps2018/master/screen.gif)
 
 
 
@@ -19,3 +19,5 @@ Inspired by Spinning Ball of Crystal
 https://codepen.io/aglosson/pen/rVyRGm
 
 
+Uses Content from Open Data Hub Südtirol - Alto Adige 
+https://opendatahub.bz.it
